@@ -15,6 +15,7 @@
 		F9F13D021A82F766001EF80D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9F13D011A82F766001EF80D /* Images.xcassets */; };
 		F9F13D051A82F766001EF80D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9F13D031A82F766001EF80D /* LaunchScreen.xib */; };
 		F9F13D111A82F767001EF80D /* macguffinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F13D101A82F767001EF80D /* macguffinTests.swift */; };
+		F9F13D1B1A82FE9D001EF80D /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F13D1A1A82FE9D001EF80D /* Character.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		F9F13D0A1A82F767001EF80D /* macguffinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = macguffinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9F13D0F1A82F767001EF80D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9F13D101A82F767001EF80D /* macguffinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macguffinTests.swift; sourceTree = "<group>"; };
+		F9F13D1A1A82FE9D001EF80D /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				F9F13D011A82F766001EF80D /* Images.xcassets */,
 				F9F13D031A82F766001EF80D /* LaunchScreen.xib */,
 				F9F13CF41A82F766001EF80D /* Supporting Files */,
+				F9F13D1A1A82FE9D001EF80D /* Character.swift */,
 			);
 			path = macguffin;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 				TargetAttributes = {
 					F9F13CF01A82F766001EF80D = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = RTJ4LC9RNQ;
 					};
 					F9F13D091A82F767001EF80D = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -222,6 +226,7 @@
 				F9F13CFB1A82F766001EF80D /* GameScene.swift in Sources */,
 				F9F13CFD1A82F766001EF80D /* GameViewController.swift in Sources */,
 				F9F13CF71A82F766001EF80D /* AppDelegate.swift in Sources */,
+				F9F13D1B1A82FE9D001EF80D /* Character.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,9 +351,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = macguffin/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -356,9 +364,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = macguffin/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
