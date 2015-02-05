@@ -7,52 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F9F13CF71A82F766001EF80D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F13CF61A82F766001EF80D /* AppDelegate.swift */; };
-		F9F13CF91A82F766001EF80D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F9F13CF81A82F766001EF80D /* GameScene.sks */; };
-		F9F13CFB1A82F766001EF80D /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F13CFA1A82F766001EF80D /* GameScene.swift */; };
-		F9F13CFD1A82F766001EF80D /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F13CFC1A82F766001EF80D /* GameViewController.swift */; };
-		F9F13D001A82F766001EF80D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9F13CFE1A82F766001EF80D /* Main.storyboard */; };
-		F9F13D021A82F766001EF80D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9F13D011A82F766001EF80D /* Images.xcassets */; };
-		F9F13D051A82F766001EF80D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9F13D031A82F766001EF80D /* LaunchScreen.xib */; };
-		F9F13D111A82F767001EF80D /* macguffinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F13D101A82F767001EF80D /* macguffinTests.swift */; };
-		F9F13D1B1A82FE9D001EF80D /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F13D1A1A82FE9D001EF80D /* Character.swift */; };
+		F92FF0CE1A842B2E0027EAA1 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92FF0CD1A842B2E0027EAA1 /* Character.swift */; };
+		F99784701A842A97003D0E02 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = F997846F1A842A97003D0E02 /* main.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		F9F13D0B1A82F767001EF80D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F9F13CE91A82F766001EF80D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F9F13CF01A82F766001EF80D;
-			remoteInfo = macguffin;
+/* Begin PBXCopyFilesBuildPhase section */
+		F997846A1A842A97003D0E02 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
 		};
-/* End PBXContainerItemProxy section */
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		F9F13CF11A82F766001EF80D /* macguffin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = macguffin.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F9F13CF51A82F766001EF80D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F9F13CF61A82F766001EF80D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F9F13CF81A82F766001EF80D /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		F9F13CFA1A82F766001EF80D /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		F9F13CFC1A82F766001EF80D /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		F9F13CFF1A82F766001EF80D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F9F13D011A82F766001EF80D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		F9F13D041A82F766001EF80D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		F9F13D0A1A82F767001EF80D /* macguffinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = macguffinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F9F13D0F1A82F767001EF80D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F9F13D101A82F767001EF80D /* macguffinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macguffinTests.swift; sourceTree = "<group>"; };
-		F9F13D1A1A82FE9D001EF80D /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		F92FF0CD1A842B2E0027EAA1 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		F997846C1A842A97003D0E02 /* macguffin */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = macguffin; sourceTree = BUILT_PRODUCTS_DIR; };
+		F997846F1A842A97003D0E02 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		F9F13CEE1A82F766001EF80D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F9F13D071A82F767001EF80D /* Frameworks */ = {
+		F99784691A842A97003D0E02 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -62,75 +40,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F9F13CE81A82F766001EF80D = {
+		F99784631A842A97003D0E02 = {
 			isa = PBXGroup;
 			children = (
-				F9F13CF31A82F766001EF80D /* macguffin */,
-				F9F13D0D1A82F767001EF80D /* macguffinTests */,
-				F9F13CF21A82F766001EF80D /* Products */,
+				F997846E1A842A97003D0E02 /* macguffin */,
+				F997846D1A842A97003D0E02 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		F9F13CF21A82F766001EF80D /* Products */ = {
+		F997846D1A842A97003D0E02 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F9F13CF11A82F766001EF80D /* macguffin.app */,
-				F9F13D0A1A82F767001EF80D /* macguffinTests.xctest */,
+				F997846C1A842A97003D0E02 /* macguffin */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F9F13CF31A82F766001EF80D /* macguffin */ = {
+		F997846E1A842A97003D0E02 /* macguffin */ = {
 			isa = PBXGroup;
 			children = (
-				F9F13CF61A82F766001EF80D /* AppDelegate.swift */,
-				F9F13CF81A82F766001EF80D /* GameScene.sks */,
-				F9F13CFA1A82F766001EF80D /* GameScene.swift */,
-				F9F13CFC1A82F766001EF80D /* GameViewController.swift */,
-				F9F13CFE1A82F766001EF80D /* Main.storyboard */,
-				F9F13D011A82F766001EF80D /* Images.xcassets */,
-				F9F13D031A82F766001EF80D /* LaunchScreen.xib */,
-				F9F13CF41A82F766001EF80D /* Supporting Files */,
-				F9F13D1A1A82FE9D001EF80D /* Character.swift */,
+				F997846F1A842A97003D0E02 /* main.swift */,
+				F92FF0CD1A842B2E0027EAA1 /* Character.swift */,
 			);
 			path = macguffin;
-			sourceTree = "<group>";
-		};
-		F9F13CF41A82F766001EF80D /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				F9F13CF51A82F766001EF80D /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		F9F13D0D1A82F767001EF80D /* macguffinTests */ = {
-			isa = PBXGroup;
-			children = (
-				F9F13D101A82F767001EF80D /* macguffinTests.swift */,
-				F9F13D0E1A82F767001EF80D /* Supporting Files */,
-			);
-			path = macguffinTests;
-			sourceTree = "<group>";
-		};
-		F9F13D0E1A82F767001EF80D /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				F9F13D0F1A82F767001EF80D /* Info.plist */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F9F13CF01A82F766001EF80D /* macguffin */ = {
+		F997846B1A842A97003D0E02 /* macguffin */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F9F13D141A82F767001EF80D /* Build configuration list for PBXNativeTarget "macguffin" */;
+			buildConfigurationList = F99784731A842A97003D0E02 /* Build configuration list for PBXNativeTarget "macguffin" */;
 			buildPhases = (
-				F9F13CED1A82F766001EF80D /* Sources */,
-				F9F13CEE1A82F766001EF80D /* Frameworks */,
-				F9F13CEF1A82F766001EF80D /* Resources */,
+				F99784681A842A97003D0E02 /* Sources */,
+				F99784691A842A97003D0E02 /* Frameworks */,
+				F997846A1A842A97003D0E02 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -138,137 +82,54 @@
 			);
 			name = macguffin;
 			productName = macguffin;
-			productReference = F9F13CF11A82F766001EF80D /* macguffin.app */;
-			productType = "com.apple.product-type.application";
-		};
-		F9F13D091A82F767001EF80D /* macguffinTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F9F13D171A82F767001EF80D /* Build configuration list for PBXNativeTarget "macguffinTests" */;
-			buildPhases = (
-				F9F13D061A82F767001EF80D /* Sources */,
-				F9F13D071A82F767001EF80D /* Frameworks */,
-				F9F13D081A82F767001EF80D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F9F13D0C1A82F767001EF80D /* PBXTargetDependency */,
-			);
-			name = macguffinTests;
-			productName = macguffinTests;
-			productReference = F9F13D0A1A82F767001EF80D /* macguffinTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
+			productReference = F997846C1A842A97003D0E02 /* macguffin */;
+			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		F9F13CE91A82F766001EF80D /* Project object */ = {
+		F99784641A842A97003D0E02 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Evan Hildreth";
 				TargetAttributes = {
-					F9F13CF01A82F766001EF80D = {
+					F997846B1A842A97003D0E02 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = RTJ4LC9RNQ;
-					};
-					F9F13D091A82F767001EF80D = {
-						CreatedOnToolsVersion = 6.1.1;
-						TestTargetID = F9F13CF01A82F766001EF80D;
 					};
 				};
 			};
-			buildConfigurationList = F9F13CEC1A82F766001EF80D /* Build configuration list for PBXProject "macguffin" */;
+			buildConfigurationList = F99784671A842A97003D0E02 /* Build configuration list for PBXProject "macguffin" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 			);
-			mainGroup = F9F13CE81A82F766001EF80D;
-			productRefGroup = F9F13CF21A82F766001EF80D /* Products */;
+			mainGroup = F99784631A842A97003D0E02;
+			productRefGroup = F997846D1A842A97003D0E02 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F9F13CF01A82F766001EF80D /* macguffin */,
-				F9F13D091A82F767001EF80D /* macguffinTests */,
+				F997846B1A842A97003D0E02 /* macguffin */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXResourcesBuildPhase section */
-		F9F13CEF1A82F766001EF80D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F9F13D051A82F766001EF80D /* LaunchScreen.xib in Resources */,
-				F9F13D021A82F766001EF80D /* Images.xcassets in Resources */,
-				F9F13CF91A82F766001EF80D /* GameScene.sks in Resources */,
-				F9F13D001A82F766001EF80D /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F9F13D081A82F767001EF80D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		F9F13CED1A82F766001EF80D /* Sources */ = {
+		F99784681A842A97003D0E02 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9F13CFB1A82F766001EF80D /* GameScene.swift in Sources */,
-				F9F13CFD1A82F766001EF80D /* GameViewController.swift in Sources */,
-				F9F13CF71A82F766001EF80D /* AppDelegate.swift in Sources */,
-				F9F13D1B1A82FE9D001EF80D /* Character.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F9F13D061A82F767001EF80D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F9F13D111A82F767001EF80D /* macguffinTests.swift in Sources */,
+				F99784701A842A97003D0E02 /* main.swift in Sources */,
+				F92FF0CE1A842B2E0027EAA1 /* Character.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		F9F13D0C1A82F767001EF80D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F9F13CF01A82F766001EF80D /* macguffin */;
-			targetProxy = F9F13D0B1A82F767001EF80D /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		F9F13CFE1A82F766001EF80D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F9F13CFF1A82F766001EF80D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		F9F13D031A82F766001EF80D /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F9F13D041A82F766001EF80D /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		F9F13D121A82F767001EF80D /* Debug */ = {
+		F99784711A842A97003D0E02 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -285,7 +146,6 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -302,16 +162,15 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
+				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		F9F13D131A82F767001EF80D /* Release */ = {
+		F99784721A842A97003D0E02 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -328,8 +187,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -339,103 +198,48 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
-		F9F13D151A82F767001EF80D /* Debug */ = {
+		F99784741A842A97003D0E02 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = macguffin/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		F9F13D161A82F767001EF80D /* Release */ = {
+		F99784751A842A97003D0E02 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = macguffin/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		F9F13D181A82F767001EF80D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = macguffinTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/macguffin.app/macguffin";
-			};
-			name = Debug;
-		};
-		F9F13D191A82F767001EF80D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = macguffinTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/macguffin.app/macguffin";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F9F13CEC1A82F766001EF80D /* Build configuration list for PBXProject "macguffin" */ = {
+		F99784671A842A97003D0E02 /* Build configuration list for PBXProject "macguffin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F9F13D121A82F767001EF80D /* Debug */,
-				F9F13D131A82F767001EF80D /* Release */,
+				F99784711A842A97003D0E02 /* Debug */,
+				F99784721A842A97003D0E02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F9F13D141A82F767001EF80D /* Build configuration list for PBXNativeTarget "macguffin" */ = {
+		F99784731A842A97003D0E02 /* Build configuration list for PBXNativeTarget "macguffin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F9F13D151A82F767001EF80D /* Debug */,
-				F9F13D161A82F767001EF80D /* Release */,
+				F99784741A842A97003D0E02 /* Debug */,
+				F99784751A842A97003D0E02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		F9F13D171A82F767001EF80D /* Build configuration list for PBXNativeTarget "macguffinTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F9F13D181A82F767001EF80D /* Debug */,
-				F9F13D191A82F767001EF80D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = F9F13CE91A82F766001EF80D /* Project object */;
+	rootObject = F99784641A842A97003D0E02 /* Project object */;
 }
