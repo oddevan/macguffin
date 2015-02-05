@@ -11,7 +11,7 @@ in command-line C++. The next year I (unsuccessfully) attempted to
 port it to Java. And then I gave up and [put the whole thing on
 SourceForge][dagora].
 
-[dagora]: http://dagora.sf.net/
+[dagora]: http://sourceforge.net/projects/dagora/files/dagora/Dagora%20Battle%20System%20%28Initial%20release%20v0.1%29/
 
 For some reason, I've decided to modernize the thing and get it on
 the iPhone. Thus, this project. I have no idea how well this will
