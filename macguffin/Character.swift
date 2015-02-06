@@ -9,25 +9,33 @@
 //import Foundation
 
 protocol CharacterMonitor {
-    func characterStateChanged(sender:Character)
+    func characterStateChanged(sender: Character)
 }
 
 class Character {
-    var name:String
+    var name: String
     
-    let baseAttack:Int
-    let baseDefense:Int
-    let baseMagic:Int
-    let baseSpeed:Int
-    let baseAccuracy:Int
+    let baseAttack: Int
+    let baseDefense: Int
+    let baseMagic: Int
+    let baseSpeed: Int
+    let baseAccuracy: Int
+    let baseMaxHP: Int
+    let baseMaxMP: Int
     
-    var atk:Int { get { return baseAttack } }
-    var def:Int { get { return baseDefense } }
-    var mag:Int { get { return baseMagic } }
-    var spd:Int { get { return baseSpeed } }
-    var acc:Int { get { return baseAccuracy } }
+    var atk: Int { return baseAttack }
+    var def: Int { return baseDefense }
+    var mag: Int { return baseMagic }
+    var spd: Int { return baseSpeed }
+    var acc: Int { return baseAccuracy }
+    var maxHP: Int { return baseMaxHP }
+    var maxMP: Int { return baseMaxMP }
     
-    init(name:String, baseAttack:Int, baseDefense:Int, baseMagic:Int, baseSpeed:Int, baseAccuracy:Int) {
+    var hp: Int
+    var mp: Int
+    var status: Status
+    
+    init(name: String, baseAttack: Int, baseDefense: Int, baseMagic: Int, baseSpeed: Int, baseAccuracy: Int, baseMaxHP: Int, baseMaxMP: Int) {
         self.name = name
         
         self.baseAccuracy = baseAccuracy
@@ -35,5 +43,11 @@ class Character {
         self.baseDefense = baseDefense
         self.baseMagic = baseMagic
         self.baseSpeed = baseSpeed
+        self.baseMaxHP = baseMaxHP
+        self.baseMaxMP = baseMaxMP
+        
+        self.hp = self.baseMaxHP
+        self.mp = self.baseMaxMP
+        self.status = Status.Normal
     }
 }

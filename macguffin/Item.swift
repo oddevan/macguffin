@@ -7,10 +7,10 @@
 //
 
 class Item {
-    let name:String
+    let name: String
     
-    init(name:String) {
-        self.name = name
+    init() {
+        self.name = ""
     }
     
     func use(target:Character) -> Bool {

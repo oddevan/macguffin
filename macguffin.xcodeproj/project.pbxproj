@@ -11,6 +11,9 @@
 		F91D39971A8453570029DA85 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91D39961A8453570029DA85 /* Status.swift */; };
 		F91D39991A845D690029DA85 /* Party.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91D39981A845D690029DA85 /* Party.swift */; };
 		F91D399B1A84602B0029DA85 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91D399A1A84602B0029DA85 /* Item.swift */; };
+		F91D399E1A8463470029DA85 /* Potion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91D399D1A8463470029DA85 /* Potion.swift */; };
+		F91D39A01A846A610029DA85 /* Ether.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91D399F1A846A610029DA85 /* Ether.swift */; };
+		F91D39A21A846AAD0029DA85 /* Cure.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91D39A11A846AAD0029DA85 /* Cure.swift */; };
 		F92FF0CE1A842B2E0027EAA1 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92FF0CD1A842B2E0027EAA1 /* Character.swift */; };
 		F99784701A842A97003D0E02 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = F997846F1A842A97003D0E02 /* main.swift */; };
 		F9DE6E401A844A8D00922725 /* Attack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DE6E3F1A844A8D00922725 /* Attack.swift */; };
@@ -33,6 +36,9 @@
 		F91D39961A8453570029DA85 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		F91D39981A845D690029DA85 /* Party.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Party.swift; sourceTree = "<group>"; };
 		F91D399A1A84602B0029DA85 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		F91D399D1A8463470029DA85 /* Potion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Potion.swift; sourceTree = "<group>"; };
+		F91D399F1A846A610029DA85 /* Ether.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ether.swift; sourceTree = "<group>"; };
+		F91D39A11A846AAD0029DA85 /* Cure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cure.swift; sourceTree = "<group>"; };
 		F92FF0CD1A842B2E0027EAA1 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		F997846C1A842A97003D0E02 /* macguffin */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = macguffin; sourceTree = BUILT_PRODUCTS_DIR; };
 		F997846F1A842A97003D0E02 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -50,6 +56,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F91D399C1A84633C0029DA85 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				F91D399D1A8463470029DA85 /* Potion.swift */,
+				F91D399F1A846A610029DA85 /* Ether.swift */,
+				F91D39A11A846AAD0029DA85 /* Cure.swift */,
+			);
+			name = Items;
+			sourceTree = "<group>";
+		};
 		F99784631A842A97003D0E02 = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +85,7 @@
 		F997846E1A842A97003D0E02 /* macguffin */ = {
 			isa = PBXGroup;
 			children = (
+				F91D399C1A84633C0029DA85 /* Items */,
 				F997846F1A842A97003D0E02 /* main.swift */,
 				F92FF0CD1A842B2E0027EAA1 /* Character.swift */,
 				F9DE6E3F1A844A8D00922725 /* Attack.swift */,
@@ -136,8 +153,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F91D399E1A8463470029DA85 /* Potion.swift in Sources */,
+				F91D39A01A846A610029DA85 /* Ether.swift in Sources */,
 				F91D39991A845D690029DA85 /* Party.swift in Sources */,
 				F99784701A842A97003D0E02 /* main.swift in Sources */,
+				F91D39A21A846AAD0029DA85 /* Cure.swift in Sources */,
 				F91D39971A8453570029DA85 /* Status.swift in Sources */,
 				F92FF0CE1A842B2E0027EAA1 /* Character.swift in Sources */,
 				F91D399B1A84602B0029DA85 /* Item.swift in Sources */,
