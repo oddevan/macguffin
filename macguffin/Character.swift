@@ -6,7 +6,11 @@
 //  Copyright (c) 2015 Evan Hildreth. All rights reserved.
 //
 
-import Foundation
+//import Foundation
+
+protocol CharacterMonitor {
+    func characterStateChanged(sender:Character)
+}
 
 class Character {
     var name:String
@@ -17,11 +21,11 @@ class Character {
     let baseSpeed:Int
     let baseAccuracy:Int
     
-    var Atk:Int { get { return baseAttack } }
-    var Def:Int { get { return baseDefense } }
-    var Mag:Int { get { return baseMagic } }
-    var Spd:Int { get { return baseSpeed } }
-    var Acc:Int { get { return baseAccuracy } }
+    var atk:Int { get { return baseAttack } }
+    var def:Int { get { return baseDefense } }
+    var mag:Int { get { return baseMagic } }
+    var spd:Int { get { return baseSpeed } }
+    var acc:Int { get { return baseAccuracy } }
     
     init(name:String, baseAttack:Int, baseDefense:Int, baseMagic:Int, baseSpeed:Int, baseAccuracy:Int) {
         self.name = name
