@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 Evan Hildreth. All rights reserved.
 //
 
-enum Status {
-    case Normal
-    case Sleep
-    case Poisoned
+enum Status : Int {
+    case Normal = 0
+    case Sleep = 1
+    case Poisoned = 2
 }
