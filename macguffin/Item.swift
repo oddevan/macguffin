@@ -17,6 +17,16 @@ enum ItemAffectedStat {
     case Status
 }
 
+struct ItemQuantity {
+    let item: Item
+    var quantity: Int
+    
+    init(item: Item) {
+        self.item = item
+        self.quantity = 0
+    }
+}
+
 class Item {
     let name: String
     

@@ -35,6 +35,8 @@ class Character {
     var mp: Int
     var status: Status
     
+    var wait: Int = 0 //Temp value for battle timing
+    
     init(name: String, baseAttack: Int, baseDefense: Int, baseMagic: Int, baseSpeed: Int, baseAccuracy: Int, baseMaxHP: Int, baseMaxMP: Int) {
         self.name = name
         
