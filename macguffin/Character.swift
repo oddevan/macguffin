@@ -35,9 +35,13 @@ class Character {
     var mp: Int
     var status: Status
     
+    var isAlive: Bool { return hp > 0 }
+    
     var wait: Int = 0 //Temp value for battle timing
     
-    init(name: String, baseAttack: Int, baseDefense: Int, baseMagic: Int, baseSpeed: Int, baseAccuracy: Int, baseMaxHP: Int, baseMaxMP: Int) {
+    var intelligence: Intelligence
+    
+    init(name: String, baseAttack: Int, baseDefense: Int, baseMagic: Int, baseSpeed: Int, baseAccuracy: Int, baseMaxHP: Int, baseMaxMP: Int, intelligence: Intelligence) {
         self.name = name
         
         self.baseAccuracy = baseAccuracy
@@ -47,6 +51,7 @@ class Character {
         self.baseSpeed = baseSpeed
         self.baseMaxHP = baseMaxHP
         self.baseMaxMP = baseMaxMP
+        self.intelligence = intelligence
         
         self.hp = self.baseMaxHP
         self.mp = self.baseMaxMP
