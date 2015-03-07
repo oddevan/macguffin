@@ -11,6 +11,30 @@ protocol BattleDelegate {
     func battleInvalidState(sender: Battle)
 }
 
+// All of these should be optional, but I don't feel like dealing with
+// a crapton of @objc crap in this crapfest.
+protocol BattleMonitor {
+    func battleBegun(sender: Battle)
+    
+    func battle(  sender: Battle,
+         activeCharacter: Character,
+         performedAttack: Attack,
+        againstCharacter: Character,
+               forDamage: Int?,
+               forStatus: Status?)
+    
+    func battle(sender: Battle,
+        activeCharacter: Character,
+        usedItem: Item,
+        againstCharacter: Character,
+        forDamage: Int?,
+        forStatus: Status?)
+    
+    func battle(sender: Battle, characterDied: Character)
+    
+    func battleEnded(sender: Battle)
+}
+
 class Battle {
     let proTeam: Team
     let antTeam: Team
@@ -20,6 +44,8 @@ class Battle {
     let waitValue: Int
     var currentAttacker: Character?
     var currentDefender: Character?
+    
+    var monitor: BattleMonitor?
     
     init(proTeam: Team, antTeam: Team, delegate: BattleDelegate) {
         self.proTeam = proTeam
@@ -44,10 +70,13 @@ class Battle {
            !isTeamAlive(proTeam) ||
            !isTeamAlive(antTeam) {
             delegate.battleInvalidState(self)
+            return
         }
         
         currentAttacker = nil
         currentDefender = nil
+        
+        monitor?.battleBegun(self)
         
         nextTurn()
     }
@@ -71,12 +100,26 @@ class Battle {
     }
     
     func characterPerformAction(performer: Character, targeting: Character, withAttack: Attack) {
+        let prevHP = targeting.hp
+        
         withAttack.perform(performer, victim: targeting)
+        
+        monitor?.battle(self, activeCharacter: performer, performedAttack: withAttack, againstCharacter: targeting, forDamage: prevHP - targeting.hp, forStatus: nil)
+        
         endTurn()
     }
     
     func characterPerformAction(performer: Character, targeting: Character, withItem: Item) {
+        let prevHP = targeting.hp
+        
         withItem.use(targeting)
+        
+        monitor?.battle(self, activeCharacter: performer, usedItem: withItem, againstCharacter: targeting, forDamage: prevHP - targeting.hp, forStatus: nil)
+        
+        if !targeting.isAlive {
+            monitor?.battle(self, characterDied: targeting)
+        }
+        
         endTurn()
     }
     
@@ -94,6 +137,7 @@ class Battle {
         if isTeamAlive(proTeam) && isTeamAlive(antTeam) {
             nextTurn()
         } else {
+            monitor?.battleEnded(self)
             delegate.battleCompleted(self, protagonistsWon: isTeamAlive(proTeam))
         }
     }

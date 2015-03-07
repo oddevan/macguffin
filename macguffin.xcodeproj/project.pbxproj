@@ -17,6 +17,7 @@
 		F99784701A842A97003D0E02 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = F997846F1A842A97003D0E02 /* main.swift */; };
 		F9C2F5BC1AA2305B00A7962F /* Intelligence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C2F5BB1AA2305B00A7962F /* Intelligence.swift */; };
 		F9C2F5BE1AA29A0900A7962F /* UserIntelligence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C2F5BD1AA29A0900A7962F /* UserIntelligence.swift */; };
+		F9C2F5C01AA3FA1400A7962F /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C2F5BF1AA3FA1400A7962F /* Job.swift */; };
 		F9DE6E401A844A8D00922725 /* Attack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DE6E3F1A844A8D00922725 /* Attack.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		F997846F1A842A97003D0E02 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		F9C2F5BB1AA2305B00A7962F /* Intelligence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Intelligence.swift; sourceTree = "<group>"; };
 		F9C2F5BD1AA29A0900A7962F /* UserIntelligence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserIntelligence.swift; sourceTree = "<group>"; };
+		F9C2F5BF1AA3FA1400A7962F /* Job.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
 		F9DE6E3F1A844A8D00922725 /* Attack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +90,7 @@
 				F923AF271A9EBBE200291652 /* Battle.swift */,
 				F9C2F5BB1AA2305B00A7962F /* Intelligence.swift */,
 				F9C2F5BD1AA29A0900A7962F /* UserIntelligence.swift */,
+				F9C2F5BF1AA3FA1400A7962F /* Job.swift */,
 			);
 			path = macguffin;
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 				F92FF0CE1A842B2E0027EAA1 /* Character.swift in Sources */,
 				F9893BA11A942A4000A02F64 /* Team.swift in Sources */,
 				F91D399B1A84602B0029DA85 /* Item.swift in Sources */,
+				F9C2F5C01AA3FA1400A7962F /* Job.swift in Sources */,
 				F9DE6E401A844A8D00922725 /* Attack.swift in Sources */,
 				F91D39951A84530B0029DA85 /* Type.swift in Sources */,
 				F9C2F5BC1AA2305B00A7962F /* Intelligence.swift in Sources */,

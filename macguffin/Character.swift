@@ -23,6 +23,8 @@ class Character {
     let baseMaxHP: Int
     let baseMaxMP: Int
     
+    var level: Int = 1
+    
     var atk: Int { return baseAttack }
     var def: Int { return baseDefense }
     var mag: Int { return baseMagic }
@@ -40,6 +42,7 @@ class Character {
     var wait: Int = 0 //Temp value for battle timing
     
     var intelligence: Intelligence
+    var monitor: CharacterMonitor?
     
     init(name: String, baseAttack: Int, baseDefense: Int, baseMagic: Int, baseSpeed: Int, baseAccuracy: Int, baseMaxHP: Int, baseMaxMP: Int, intelligence: Intelligence) {
         self.name = name

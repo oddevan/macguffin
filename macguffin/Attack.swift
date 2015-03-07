@@ -26,6 +26,6 @@ class Attack {
     }
     
     func perform(attacker:Character, victim:Character) {
-        //TODO: do stuff
+        victim.hp -= attacker.atk * self.power / victim.def
     }
 }
