@@ -8,6 +8,7 @@
 
 import Foundation
 
+// via http://stackoverflow.com/questions/24004776/input-from-the-keyboard-in-command-line-application?lq=1
 func input() -> String {
     var keyboard = NSFileHandle.fileHandleWithStandardInput()
     var inputData = keyboard.availableData
@@ -15,7 +16,7 @@ func input() -> String {
 }
 
 class IntelDemo: Intelligence {
-    let standardAttack = Attack(name: "Punch", type: Type.Normal, power: 2, draw: 0, status: Status.Normal, isTeam: false)
+    let standardAttack = Attack(name: "Punch", type: Type.Normal, power: 5, draw: 0, status: Status.Normal, isTeam: false)
     
     // From Intelligence
     
@@ -57,7 +58,7 @@ class BattleDemo: BattleMonitor, CharacterMonitor, BattleDelegate {
     init() {
         self.sonic = Character(name: "Sonic", baseAttack: 5, baseDefense: 3, baseMagic: 2, baseSpeed: 7, baseAccuracy: 7, baseMaxHP: 50, baseMaxMP: 10, intelligence: self.intel)
         self.twilight = Character(name: "Twilight", baseAttack: 4, baseDefense: 7, baseMagic: 7, baseSpeed: 5, baseAccuracy: 5, baseMaxHP: 70, baseMaxMP: 30, intelligence: self.intel)
-        self.mewtwo = Character(name: "Mewtwo", baseAttack: 4, baseDefense: 4, baseMagic: 8, baseSpeed: 3, baseAccuracy: 8, baseMaxHP: 70, baseMaxMP: 30, intelligence: self.intel)
+        self.mewtwo = Character(name: "Mewtwo", baseAttack: 4, baseDefense: 4, baseMagic: 8, baseSpeed: 3, baseAccuracy: 8, baseMaxHP: 50, baseMaxMP: 30, intelligence: self.intel)
         
         self.team1 = Team()
         team1.active.append(sonic)

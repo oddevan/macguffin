@@ -106,6 +106,10 @@ class Battle {
         
         monitor?.battle(self, activeCharacter: performer, performedAttack: withAttack, againstCharacter: targeting, forDamage: prevHP - targeting.hp, forStatus: nil)
         
+        if !targeting.isAlive {
+            monitor?.battle(self, characterDied: targeting)
+        }
+        
         endTurn()
     }
     
