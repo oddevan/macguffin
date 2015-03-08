@@ -33,9 +33,9 @@ class Character {
     var maxHP: Int { return baseMaxHP }
     var maxMP: Int { return baseMaxMP }
     
-    var hp: Int
-    var mp: Int
-    var status: Status
+    var hp: Int { didSet { monitor?.characterStateChanged(self) } }
+    var mp: Int { didSet { monitor?.characterStateChanged(self) } }
+    var status: Status { didSet { monitor?.characterStateChanged(self) } }
     
     var isAlive: Bool { return hp > 0 }
     
