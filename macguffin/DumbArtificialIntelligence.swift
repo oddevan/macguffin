@@ -9,9 +9,16 @@
 class DumbArtificialIntelligence: Intelligence {
     func characterNeedsDecision(character: Character, forBattle: Battle) {
         var victimIndex: Int
-        do {
-            victimIndex = Utility.randomInt(forBattle.battleQueue.count)
-        } while forBattle.battleQueue[victimIndex] === character
+        
+        if let myTeam = character.team {
+            do {
+                victimIndex = Utility.randomInt(forBattle.battleQueue.count)
+            } while forBattle.battleQueue[victimIndex].team === myTeam
+        } else {
+            do {
+                victimIndex = Utility.randomInt(forBattle.battleQueue.count)
+            } while forBattle.battleQueue[victimIndex] === character
+        }
         
         forBattle.characterPerformAction(character, targeting: forBattle.battleQueue[victimIndex], withAttack: character.defaultAttack)
     }

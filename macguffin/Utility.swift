@@ -16,6 +16,10 @@ struct Utility {
         static let StatBumpPerLevel: Double = 0.1
     }
     
+    struct Team {
+        static let MaxActiveCharacters: Int = 4
+    }
+    
     struct Attack {
         static let ChanceOfCriticalHit: Double = 0.1
     }

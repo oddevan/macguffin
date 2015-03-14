@@ -40,7 +40,7 @@ class IntelDemo: Intelligence {
 }
 
 class BattleDemo: BattleMonitor, CharacterMonitor, BattleDelegate {
-    let intel = IntelDemo()
+    let intel = DumbArtificialIntelligence() //IntelDemo()
     
     let team1: Team
     
@@ -62,12 +62,12 @@ class BattleDemo: BattleMonitor, CharacterMonitor, BattleDelegate {
         self.battleBot = Character(name: "Battle Bot", baseAttack: 4, baseDefense: 4, baseMagic: 4, baseSpeed: 3, baseAccuracy: 8, baseMaxHP: 50, baseMaxMP: 0, intelligence: DumbArtificialIntelligence())
         
         self.team1 = Team()
-        team1.active.append(sonic)
-        team1.active.append(twilight)
-        team1.active.append(mewtwo)
+        team1.enroll(sonic)
+        team1.enroll(twilight)
+        team1.enroll(mewtwo)
         
         self.team2 = Team()
-        team2.active.append(battleBot)
+        team2.enroll(battleBot)
         
         self.sonic.monitor = self
         self.twilight.monitor = self
@@ -163,10 +163,6 @@ class BattleDemo: BattleMonitor, CharacterMonitor, BattleDelegate {
     
     // From CharacterMonitor
     
-    func characterStateChanged(sender: Character) {
-        println("% \(sender.name): HP\(sender.hp)/\(sender.maxHP) MP\(sender.mp)/\(sender.maxMP) \(sender.status)")
-    }
-    
     func character(sender: Character, levelChangedTo: Int) {
         println("%% \(sender.name) grew to level \(levelChangedTo)")
     }
@@ -180,7 +176,7 @@ class BattleDemo: BattleMonitor, CharacterMonitor, BattleDelegate {
             output += "lost \(-1 * hpChangedBy) HP"
         }
         
-        println(output)
+        println("\(output): \(sender.hp)/\(sender.maxHP)")
     }
     
     func character(sender: Character, mpChangedBy: Int) {

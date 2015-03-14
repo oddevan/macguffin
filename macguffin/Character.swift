@@ -9,12 +9,11 @@
 //import Foundation
 
 protocol CharacterMonitor {
-    func characterStateChanged(sender: Character)
-    
     func character(sender: Character, levelChangedTo: Int)
     func character(sender: Character, hpChangedBy: Int)
     func character(sender: Character, mpChangedBy: Int)
     func character(sender: Character, statusChangedTo: Status)
+    func character(sender: Character, learnedAttack: Attack)
 }
 
 class Character {
@@ -37,6 +36,33 @@ class Character {
         }
     }
     
+    var hp: Int = 0 {
+        didSet {
+            if hp < 0 { hp = 0 }
+            else if hp > maxHP { hp = maxHP }
+            
+            monitor?.character(self, hpChangedBy: self.hp - oldValue)
+        }
+    }
+    
+    var mp: Int = 0 {
+        didSet {
+            if mp < 0 { mp = 0 }
+            else if mp > maxMP { mp = maxMP }
+            
+            monitor?.character(self, mpChangedBy: self.mp - oldValue)
+        }
+    }
+    
+    var status: Status = Status.Normal { didSet { monitor?.character(self, statusChangedTo: self.status) } }
+    
+    var wait: Int = 0 //Temp value for battle timing
+    
+    let defaultAttack = Attack(name: "Punch", type: Type.Normal, power: 5, draw: 0, status: Status.Normal, isTeam: false)
+    
+    var intelligence: Intelligence
+    var monitor: CharacterMonitor?
+    
     var atk: Int { return Int(Double(baseAttack) * (1 + Utility.Character.StatBumpPerLevel * Double(level))) }
     var def: Int { return Int(Double(baseDefense) * (1 + Utility.Character.StatBumpPerLevel * Double(level))) }
     var mag: Int { return Int(Double(baseMagic) * (1 + Utility.Character.StatBumpPerLevel * Double(level))) }
@@ -45,18 +71,22 @@ class Character {
     var maxHP: Int { return Int(Double(baseMaxHP) * (1 + Utility.Character.StatBumpPerLevel * Double(level))) }
     var maxMP: Int { return Int(Double(baseMaxMP) * (1 + Utility.Character.StatBumpPerLevel * Double(level))) }
     
-    var hp: Int { didSet { monitor?.character(self, hpChangedBy: self.hp - oldValue) } }
-    var mp: Int { didSet { monitor?.character(self, mpChangedBy: self.mp - oldValue) } }
-    var status: Status { didSet { monitor?.character(self, statusChangedTo: self.status) } }
-    
     var isAlive: Bool { return hp > 0 }
     
-    var wait: Int = 0 //Temp value for battle timing
+    var specialAttacks: [Attack] = []
+    var jobs: [JobProgress] = [] {
+        didSet {
+            if currentJob == -1 {
+                currentJob = 0
+            }
+            if jobs.isEmpty {
+                currentJob = -1
+            }
+        }
+    }
+    var currentJob: Int = -1
     
-    let defaultAttack = Attack(name: "Punch", type: Type.Normal, power: 5, draw: 0, status: Status.Normal, isTeam: false)
-    
-    var intelligence: Intelligence
-    var monitor: CharacterMonitor?
+    var team: Team?
     
     init(name: String, baseAttack: Int, baseDefense: Int, baseMagic: Int, baseSpeed: Int, baseAccuracy: Int, baseMaxHP: Int, baseMaxMP: Int, intelligence: Intelligence) {
         self.name = name
@@ -70,8 +100,18 @@ class Character {
         self.baseMaxMP = baseMaxMP
         self.intelligence = intelligence
         
-        self.hp = self.baseMaxHP
-        self.mp = self.baseMaxMP
-        self.status = Status.Normal
+        self.hp = self.maxHP
+        self.mp = self.maxMP
+    }
+    
+    func spUp(amount: Int) {
+        if currentJob >= 0 && currentJob < jobs.count {
+            jobs[currentJob].sp += amount
+        }
+    }
+    
+    func learn(newSkill: Attack) {
+        specialAttacks.append(newSkill)
+        monitor?.character(self, learnedAttack: newSkill)
     }
 }
