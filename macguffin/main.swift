@@ -203,6 +203,10 @@ class BattleDemo: BattleMonitor, CharacterMonitor, BattleDelegate {
         println(output)
     }
     
+    func character(sender: Character, learnedAttack: Attack) {
+        println("%% \(sender.name) learned \(learnedAttack.name)")
+    }
+    
 }
 
 
