@@ -1,0 +1,414 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F945D0361AB64D4A00233E34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F945D0351AB64D4A00233E34 /* AppDelegate.swift */; };
+		F945D0381AB64D4A00233E34 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F945D0371AB64D4A00233E34 /* ViewController.swift */; };
+		F945D03A1AB64D4A00233E34 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F945D0391AB64D4A00233E34 /* Images.xcassets */; };
+		F945D03D1AB64D4A00233E34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F945D03B1AB64D4A00233E34 /* Main.storyboard */; };
+		F945D0491AB64D4A00233E34 /* MacguffinDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F945D0481AB64D4A00233E34 /* MacguffinDemoTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F945D0431AB64D4A00233E34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F945D0281AB64D4A00233E34 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F945D02F1AB64D4A00233E34;
+			remoteInfo = MacguffinDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F945D0301AB64D4A00233E34 /* MacguffinDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacguffinDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F945D0341AB64D4A00233E34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F945D0351AB64D4A00233E34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F945D0371AB64D4A00233E34 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F945D0391AB64D4A00233E34 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F945D03C1AB64D4A00233E34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F945D0421AB64D4A00233E34 /* MacguffinDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacguffinDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F945D0471AB64D4A00233E34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F945D0481AB64D4A00233E34 /* MacguffinDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacguffinDemoTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F945D02D1AB64D4A00233E34 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F945D03F1AB64D4A00233E34 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F945D0271AB64D4A00233E34 = {
+			isa = PBXGroup;
+			children = (
+				F945D0321AB64D4A00233E34 /* MacguffinDemo */,
+				F945D0451AB64D4A00233E34 /* MacguffinDemoTests */,
+				F945D0311AB64D4A00233E34 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F945D0311AB64D4A00233E34 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F945D0301AB64D4A00233E34 /* MacguffinDemo.app */,
+				F945D0421AB64D4A00233E34 /* MacguffinDemoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F945D0321AB64D4A00233E34 /* MacguffinDemo */ = {
+			isa = PBXGroup;
+			children = (
+				F945D0351AB64D4A00233E34 /* AppDelegate.swift */,
+				F945D0371AB64D4A00233E34 /* ViewController.swift */,
+				F945D0391AB64D4A00233E34 /* Images.xcassets */,
+				F945D03B1AB64D4A00233E34 /* Main.storyboard */,
+				F945D0331AB64D4A00233E34 /* Supporting Files */,
+			);
+			path = MacguffinDemo;
+			sourceTree = "<group>";
+		};
+		F945D0331AB64D4A00233E34 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F945D0341AB64D4A00233E34 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F945D0451AB64D4A00233E34 /* MacguffinDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				F945D0481AB64D4A00233E34 /* MacguffinDemoTests.swift */,
+				F945D0461AB64D4A00233E34 /* Supporting Files */,
+			);
+			path = MacguffinDemoTests;
+			sourceTree = "<group>";
+		};
+		F945D0461AB64D4A00233E34 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F945D0471AB64D4A00233E34 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F945D02F1AB64D4A00233E34 /* MacguffinDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F945D04C1AB64D4A00233E34 /* Build configuration list for PBXNativeTarget "MacguffinDemo" */;
+			buildPhases = (
+				F945D02C1AB64D4A00233E34 /* Sources */,
+				F945D02D1AB64D4A00233E34 /* Frameworks */,
+				F945D02E1AB64D4A00233E34 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MacguffinDemo;
+			productName = MacguffinDemo;
+			productReference = F945D0301AB64D4A00233E34 /* MacguffinDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F945D0411AB64D4A00233E34 /* MacguffinDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F945D04F1AB64D4A00233E34 /* Build configuration list for PBXNativeTarget "MacguffinDemoTests" */;
+			buildPhases = (
+				F945D03E1AB64D4A00233E34 /* Sources */,
+				F945D03F1AB64D4A00233E34 /* Frameworks */,
+				F945D0401AB64D4A00233E34 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F945D0441AB64D4A00233E34 /* PBXTargetDependency */,
+			);
+			name = MacguffinDemoTests;
+			productName = MacguffinDemoTests;
+			productReference = F945D0421AB64D4A00233E34 /* MacguffinDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F945D0281AB64D4A00233E34 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = "Evan Hildreth";
+				TargetAttributes = {
+					F945D02F1AB64D4A00233E34 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					F945D0411AB64D4A00233E34 = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = F945D02F1AB64D4A00233E34;
+					};
+				};
+			};
+			buildConfigurationList = F945D02B1AB64D4A00233E34 /* Build configuration list for PBXProject "MacguffinDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F945D0271AB64D4A00233E34;
+			productRefGroup = F945D0311AB64D4A00233E34 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F945D02F1AB64D4A00233E34 /* MacguffinDemo */,
+				F945D0411AB64D4A00233E34 /* MacguffinDemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F945D02E1AB64D4A00233E34 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F945D03A1AB64D4A00233E34 /* Images.xcassets in Resources */,
+				F945D03D1AB64D4A00233E34 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F945D0401AB64D4A00233E34 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F945D02C1AB64D4A00233E34 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F945D0381AB64D4A00233E34 /* ViewController.swift in Sources */,
+				F945D0361AB64D4A00233E34 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F945D03E1AB64D4A00233E34 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F945D0491AB64D4A00233E34 /* MacguffinDemoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F945D0441AB64D4A00233E34 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F945D02F1AB64D4A00233E34 /* MacguffinDemo */;
+			targetProxy = F945D0431AB64D4A00233E34 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F945D03B1AB64D4A00233E34 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F945D03C1AB64D4A00233E34 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F945D04A1AB64D4A00233E34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F945D04B1AB64D4A00233E34 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		F945D04D1AB64D4A00233E34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = MacguffinDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F945D04E1AB64D4A00233E34 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = MacguffinDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		F945D0501AB64D4A00233E34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MacguffinDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MacguffinDemo.app/Contents/MacOS/MacguffinDemo";
+			};
+			name = Debug;
+		};
+		F945D0511AB64D4A00233E34 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MacguffinDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MacguffinDemo.app/Contents/MacOS/MacguffinDemo";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F945D02B1AB64D4A00233E34 /* Build configuration list for PBXProject "MacguffinDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F945D04A1AB64D4A00233E34 /* Debug */,
+				F945D04B1AB64D4A00233E34 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F945D04C1AB64D4A00233E34 /* Build configuration list for PBXNativeTarget "MacguffinDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F945D04D1AB64D4A00233E34 /* Debug */,
+				F945D04E1AB64D4A00233E34 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F945D04F1AB64D4A00233E34 /* Build configuration list for PBXNativeTarget "MacguffinDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F945D0501AB64D4A00233E34 /* Debug */,
+				F945D0511AB64D4A00233E34 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F945D0281AB64D4A00233E34 /* Project object */;
+}
