@@ -26,18 +26,18 @@ class Attack {
     }
     
     func perform(attacker:Character, victim:Character) {
-        victim.hp -= attacker.atk * self.power / victim.def
+        //victim.hp -= attacker.atk * self.power / victim.def
         
-        /*
+        
         attacker.mp -= self.draw
         
         let hitProbability = Float(attacker.acc) / Float(victim.spd)
         
-        if Utility.randomFloat <= hitProbability {
+        if Utility.randomFloat() <= hitProbability {
             //attack hit
         } else {
             //attack missed
         }
-*/
+
     }
 }
