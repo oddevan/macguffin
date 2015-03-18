@@ -21,6 +21,6 @@ struct Utility {
     }
     
     struct Attack {
-        static let ChanceOfCriticalHit: Double = 0.05
+        static let ChanceOfCriticalHit: Float = 0.05
     }
 }

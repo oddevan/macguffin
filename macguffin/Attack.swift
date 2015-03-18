@@ -8,6 +8,13 @@
 
 //import Foundation
 
+struct AttackResult {
+    let missed: Bool
+    let critical: Bool
+    let cost: Int
+    let damage: Int
+}
+
 class Attack {
     let name: String
     let type: Type
@@ -25,19 +32,25 @@ class Attack {
         self.isTeam = isTeam
     }
     
-    func perform(attacker:Character, victim:Character) {
-        //victim.hp -= attacker.atk * self.power / victim.def
-        
-        
+    func perform(attacker:Character, victim:Character) -> AttackResult {
         attacker.mp -= self.draw
         
         let hitProbability = Float(attacker.acc) / Float(victim.spd)
         
         if Utility.randomFloat() <= hitProbability {
-            //attack hit
+            if Utility.randomFloat() <= Utility.Attack.ChanceOfCriticalHit {
+                let damage = attacker.atk * self.power / victim.level
+                victim.hp -= damage
+                
+                return AttackResult(missed: false, critical: true, cost: self.draw, damage: damage)
+            } else {
+                let damage = attacker.atk * self.power / victim.def
+                victim.hp -= damage
+                
+                return AttackResult(missed: false, critical: false, cost: self.draw, damage: damage)
+            }
         } else {
-            //attack missed
+            return AttackResult(missed: true, critical: false, cost: self.draw, damage: 0)
         }
-
     }
 }

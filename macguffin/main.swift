@@ -29,7 +29,7 @@ class IntelDemo: Intelligence {
         
         let choice = input()
         if let victimIndex = choice.toInt() {
-            forBattle.characterPerformAction(character, targeting: forBattle.battleQueue[victimIndex], withAttack: character.defaultAttack)
+            forBattle.characterPerformAction(character, targeting: forBattle.battleQueue[victimIndex], withAttack: character.standardAttack)
         } else {
             println(">>> Invalid input: '\(choice)'")
             characterNeedsDecision(character, forBattle: forBattle)
@@ -116,21 +116,20 @@ class BattleDemo: BattleMonitor, CharacterMonitor, BattleDelegate {
         println("----------")
     }
     
-    func battle(sender: Battle, activeCharacter: Character, performedAttack: Attack, againstCharacter: Character, forDamage: Int?, forStatus: Status?) {
+    func battle(sender: Battle, activeCharacter: Character, performedAttack: Attack, againstCharacter: Character, withResult: AttackResult) {
         println("# \(activeCharacter.name) attacked \(againstCharacter.name) with \(performedAttack.name)")
         
-        var anyEffect = false
-        if let damage = forDamage {
-            println("# \(againstCharacter.name) took \(damage) damage.")
-            anyEffect = true
-        }
-        if let status = forStatus {
-            println("# \(againstCharacter.name) status: \(status)")
-            anyEffect = true
-        }
-        
-        if !anyEffect {
-            println("# No effect!")
+        if withResult.missed {
+            println("# Attack missed!")
+        } else {
+            if withResult.critical {
+                println("# Critical hit!")
+            }
+            if withResult.damage > 0 {
+                println("# \(againstCharacter.name) took \(withResult.damage) damage.")
+            } else {
+                println("# No effect!")
+            }
         }
     }
     

@@ -20,6 +20,6 @@ class DumbArtificialIntelligence: Intelligence {
             } while forBattle.battleQueue[victimIndex] === character
         }
         
-        forBattle.characterPerformAction(character, targeting: forBattle.battleQueue[victimIndex], withAttack: character.defaultAttack)
+        forBattle.characterPerformAction(character, targeting: forBattle.battleQueue[victimIndex], withAttack: character.standardAttack)
     }
 }

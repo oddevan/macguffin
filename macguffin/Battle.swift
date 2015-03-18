@@ -20,8 +20,7 @@ protocol BattleMonitor {
          activeCharacter: Character,
          performedAttack: Attack,
         againstCharacter: Character,
-               forDamage: Int?,
-               forStatus: Status?)
+        withResult: AttackResult)
     
     func battle(sender: Battle,
         activeCharacter: Character,
@@ -102,9 +101,9 @@ class Battle {
     func characterPerformAction(performer: Character, targeting: Character, withAttack: Attack) {
         let prevHP = targeting.hp
         
-        withAttack.perform(performer, victim: targeting)
+        let attackResult = withAttack.perform(performer, victim: targeting)
         
-        monitor?.battle(self, activeCharacter: performer, performedAttack: withAttack, againstCharacter: targeting, forDamage: prevHP - targeting.hp, forStatus: nil)
+        monitor?.battle(self, activeCharacter: performer, performedAttack: withAttack, againstCharacter: targeting, withResult: attackResult)
         
         if !targeting.isAlive {
             monitor?.battle(self, characterDied: targeting)
