@@ -17,7 +17,7 @@ struct Utility {
     }
     
     struct Team {
-        static let MaxActiveCharacters: Int = 4
+        static let MaxActiveCharacters: Int = 3
     }
     
     struct Attack {

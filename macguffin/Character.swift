@@ -72,16 +72,17 @@ class Character {
     var isAlive: Bool { return hp > 0 }
     
     var defaultAttack: Attack?
+    var specialAttacks: [Attack] = []
+    
     var standardAttack: Attack {
         if currentJob > -1 {
             return jobs[currentJob].job.defaultAttack
         } else if let defatk = self.defaultAttack {
             return defatk
         } else {
-            return Attack(name: "Punch", type: Type.Normal, power: 5, draw: 0, status: Status.Normal, isTeam: false)
+            return Attack(name: "Hit", type: Type.Normal, power: 1, draw: 0, status: Status.Normal, isTeam: false)
         }
     }
-    var specialAttacks: [Attack] = []
     
     var jobs: [JobProgress] = [] {
         didSet {

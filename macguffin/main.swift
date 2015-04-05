@@ -19,28 +19,75 @@ class IntelDemo: Intelligence {
     // From Intelligence
     
     func characterNeedsDecision(character: Character, forBattle: Battle) {
+        var victimIndex: Int
+        var attackToUse: Attack
+        
         println(">>> \(character.name)'s turn")
         println(">>>")
+        
+        if character.specialAttacks.isEmpty {
+            attackToUse = character.standardAttack
+        } else {
+            println(">>> What will \(character.name) do?")
+            println(">>> 0: Attack")
+            println(">>> 1: Special")
+            
+            let menuChoice = input()
+            if let tempMenuIndex = menuChoice.toInt() {
+                switch tempMenuIndex {
+                case 0:
+                    attackToUse = character.standardAttack
+                case 1:
+                    println(">>> Which of \(character.name)'s attacks?")
+                    for (var k = 0; k < character.specialAttacks.count; ++k) {
+                        println(">>> \(k): \(character.specialAttacks[k].name)")
+                    }
+                    
+                    let attackChoice = input()
+                    if let tempAttackIndex = attackChoice.toInt() {
+                        attackToUse = character.specialAttacks[tempAttackIndex]
+                    } else {
+                        println(">>> Invalid input: '\(attackChoice)'")
+                        characterNeedsDecision(character, forBattle: forBattle)
+                        return
+                    }
+                    
+                default:
+                    println(">>> Invalid input: '\(tempMenuIndex)'")
+                    characterNeedsDecision(character, forBattle: forBattle)
+                    return
+                }
+                println(">>>")
+            } else {
+                println(">>> Invalid input: '\(menuChoice)'")
+                characterNeedsDecision(character, forBattle: forBattle)
+                return
+            }
+        }
+        
+        println(">>> Attacking with \(attackToUse.name)")
         println(">>> Who to attack?")
         
         for (var k = 0; k < forBattle.battleQueue.count; ++k) {
             println(">>> \(k): \(forBattle.battleQueue[k].name)")
         }
         
-        let choice = input()
-        if let victimIndex = choice.toInt() {
-            forBattle.characterPerformAction(character, targeting: forBattle.battleQueue[victimIndex], withAttack: character.standardAttack)
+        let victimChoice = input()
+        if let tempVictimIndex = victimChoice.toInt() {
+            victimIndex = tempVictimIndex
         } else {
-            println(">>> Invalid input: '\(choice)'")
+            println(">>> Invalid input: '\(victimChoice)'")
             characterNeedsDecision(character, forBattle: forBattle)
+            return
         }
         
+        forBattle.characterPerformAction(character, targeting: forBattle.battleQueue[victimIndex], withAttack: attackToUse)
     }
     
 }
 
 class BattleDemo: BattleMonitor, CharacterMonitor, BattleDelegate {
-    let intel = DumbArtificialIntelligence() //IntelDemo()
+    let intel = IntelDemo()
     
     let team1: Team
     
@@ -69,6 +116,13 @@ class BattleDemo: BattleMonitor, CharacterMonitor, BattleDelegate {
         self.team2 = Team()
         team2.enroll(battleBot)
         
+        sonic.defaultAttack = Attack(name: "Spindash", type: .Normal, power: 6, draw: 0, status: .Normal, isTeam: false)
+        mewtwo.defaultAttack = Attack(name: "Concussion", type: .Normal, power: 5, draw: 0, status: .Normal, isTeam: false)
+        battleBot.defaultAttack = Attack(name: "Punch", type: Type.Normal, power: 5, draw: 0, status: Status.Normal, isTeam: false)
+        
+        twilight.learn(Attack(name: "Fireworks", type: .LightMagic, power: 5, draw: 5, status: .Normal, isTeam: false))
+        mewtwo.learn(Attack(name: "Aura Sphere", type: .DarkMagic, power: 7, draw: 5, status: .Normal, isTeam: false))
+        
         self.sonic.monitor = self
         self.twilight.monitor = self
         self.mewtwo.monitor = self
@@ -87,7 +141,7 @@ class BattleDemo: BattleMonitor, CharacterMonitor, BattleDelegate {
         if protagonistsWon {
             println("The chaos of friendship cannot be defeated!")
         } else {
-            println("And Mewtwo's ego gets slightly larger...")
+            println("Oof! Go get yourselves cleaned up, heros!")
         }
         println("----------")
         println("Thank you for playing. Until next time!")
@@ -167,6 +221,8 @@ class BattleDemo: BattleMonitor, CharacterMonitor, BattleDelegate {
     }
     
     func character(sender: Character, hpChangedBy: Int) {
+        if hpChangedBy == 0 { return }
+        
         var output = "%% \(sender.name) "
         
         if hpChangedBy > 0 {
@@ -179,6 +235,8 @@ class BattleDemo: BattleMonitor, CharacterMonitor, BattleDelegate {
     }
     
     func character(sender: Character, mpChangedBy: Int) {
+        if mpChangedBy == 0 { return }
+        
         var output = "%% \(sender.name) "
         
         if mpChangedBy > 0 {
