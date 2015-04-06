@@ -123,6 +123,14 @@ class BattleDemo: BattleMonitor, CharacterMonitor, BattleDelegate {
         twilight.learn(Attack(name: "Fireworks", type: .LightMagic, power: 5, draw: 5, status: .Normal, isTeam: false))
         mewtwo.learn(Attack(name: "Aura Sphere", type: .DarkMagic, power: 7, draw: 5, status: .Normal, isTeam: false))
         
+        let catalog = Attack(name: "Catalog", type: .LightMagic, power: 4, draw: 2, status: .Normal, isTeam: false)
+        let purge = Attack(name: "451", type: .Fire, power: 4, draw: 5, status: .Normal, isTeam: true)
+        let bookbag = Attack(name: "Book Bag", type: .Normal, power: 4, draw: 0, status: .Normal, isTeam: false)
+        let overdue = Attack(name: "Overdue", type: .DarkMagic, power: 7, draw: 0, status: .Normal, isTeam: false)
+        
+        let jorb = Job(name: "Librarian", defaultAttack: bookbag, rushAttack: overdue, learnedSkills: [JobUnlockable(spRequired: 3, attack: catalog), JobUnlockable(spRequired: 5, attack: purge)])
+        twilight.jobs.append(JobProgress(job: jorb, character: twilight, sp: 2))
+        
         self.sonic.monitor = self
         self.twilight.monitor = self
         self.mewtwo.monitor = self
@@ -140,6 +148,7 @@ class BattleDemo: BattleMonitor, CharacterMonitor, BattleDelegate {
     func battleCompleted(sender: Battle, protagonistsWon: Bool) {
         if protagonistsWon {
             println("The chaos of friendship cannot be defeated!")
+            self.twilight.spUp(5)
         } else {
             println("Oof! Go get yourselves cleaned up, heros!")
         }
