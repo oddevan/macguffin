@@ -10,6 +10,7 @@
 
 protocol CharacterMonitor {
     func character(sender: Character, levelChangedTo: Int)
+    func character(sender: Character, expChangedBy: Int)
     func character(sender: Character, hpChangedBy: Int)
     func character(sender: Character, mpChangedBy: Int)
     func character(sender: Character, statusChangedTo: Status)
@@ -33,6 +34,18 @@ class Character {
             else if level > 100 { level = 100 }
             
             monitor?.character(self, levelChangedTo: level)
+        }
+    }
+    
+    var exp: Int = 0 {
+        didSet {
+            if exp < 0 { exp = 0 }
+            
+            monitor?.character(self, expChangedBy: exp - oldValue)
+            
+            while level < 100 && exp > 50 * (level * level + level) { // 50(x^2 + x)
+                ++level
+            }
         }
     }
     

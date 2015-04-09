@@ -105,6 +105,8 @@ class Battle {
         
         monitor?.battle(self, activeCharacter: performer, performedAttack: withAttack, againstCharacter: targeting, withResult: attackResult)
         
+        
+        
         if !targeting.isAlive {
             monitor?.battle(self, characterDied: targeting)
         }
