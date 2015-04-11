@@ -273,6 +273,9 @@ class BattleDemo: BattleMonitor, CharacterMonitor, BattleDelegate {
         println("%% \(sender.name) learned \(learnedAttack.name)")
     }
     
+    func character(sender: Character, expChangedBy: Int) {
+        println("%% \(sender.name) gained \(expChangedBy) EXP")
+    }
 }
 
 

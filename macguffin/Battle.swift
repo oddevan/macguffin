@@ -39,6 +39,9 @@ class Battle {
     let antTeam: Team
     let delegate: BattleDelegate
     
+    var proTeamQueuedExp: Int = 0
+    var antTeamQueuedExp: Int = 0
+    
     var battleQueue: [Character]
     let waitValue: Int
     var currentAttacker: Character?
@@ -105,7 +108,14 @@ class Battle {
         
         monitor?.battle(self, activeCharacter: performer, performedAttack: withAttack, againstCharacter: targeting, withResult: attackResult)
         
-        
+        performer.exp += (attackResult.damage / 2)
+        if let attackingTeam = performer.team {
+            if attackingTeam === proTeam {
+                proTeamQueuedExp += (attackResult.damage / 3)
+            } else {
+                antTeamQueuedExp += (attackResult.damage / 3)
+            }
+        }
         
         if !targeting.isAlive {
             monitor?.battle(self, characterDied: targeting)
@@ -142,9 +152,23 @@ class Battle {
         if isTeamAlive(proTeam) && isTeamAlive(antTeam) {
             nextTurn()
         } else {
-            monitor?.battleEnded(self)
-            delegate.battleCompleted(self, protagonistsWon: isTeamAlive(proTeam))
+            endBattle(isTeamAlive(proTeam))
         }
+    }
+    
+    func endBattle(protagonistsWon: Bool) {
+        if protagonistsWon {
+            for member in proTeam.active + proTeam.bench {
+                member.exp += proTeamQueuedExp
+            }
+        } else {
+            for member in antTeam.active + antTeam.bench {
+                member.exp += antTeamQueuedExp
+            }
+        }
+        
+        monitor?.battleEnded(self)
+        delegate.battleCompleted(self, protagonistsWon: protagonistsWon)
     }
     
     
