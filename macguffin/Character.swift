@@ -43,7 +43,7 @@ class Character {
             
             monitor?.character(self, expChangedBy: exp - oldValue)
             
-            while level < 100 && exp > 50 * (level * level + level) { // 50(x^2 + x)
+            while level < 100 && exp >= 50 * (level * level + level) { // 50(x^2 + x)
                 ++level
             }
         }
