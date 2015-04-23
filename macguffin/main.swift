@@ -19,28 +19,75 @@ class IntelDemo: Intelligence {
     // From Intelligence
     
     func characterNeedsDecision(character: Character, forBattle: Battle) {
+        var victimIndex: Int
+        var attackToUse: Attack
+        
         println(">>> \(character.name)'s turn")
         println(">>>")
+        
+        if character.specialAttacks.isEmpty {
+            attackToUse = character.standardAttack
+        } else {
+            println(">>> What will \(character.name) do?")
+            println(">>> 0: Attack")
+            println(">>> 1: Special")
+            
+            let menuChoice = input()
+            if let tempMenuIndex = menuChoice.toInt() {
+                switch tempMenuIndex {
+                case 0:
+                    attackToUse = character.standardAttack
+                case 1:
+                    println(">>> Which of \(character.name)'s attacks?")
+                    for (var k = 0; k < character.specialAttacks.count; ++k) {
+                        println(">>> \(k): \(character.specialAttacks[k].name)")
+                    }
+                    
+                    let attackChoice = input()
+                    if let tempAttackIndex = attackChoice.toInt() {
+                        attackToUse = character.specialAttacks[tempAttackIndex]
+                    } else {
+                        println(">>> Invalid input: '\(attackChoice)'")
+                        characterNeedsDecision(character, forBattle: forBattle)
+                        return
+                    }
+                    
+                default:
+                    println(">>> Invalid input: '\(tempMenuIndex)'")
+                    characterNeedsDecision(character, forBattle: forBattle)
+                    return
+                }
+                println(">>>")
+            } else {
+                println(">>> Invalid input: '\(menuChoice)'")
+                characterNeedsDecision(character, forBattle: forBattle)
+                return
+            }
+        }
+        
+        println(">>> Attacking with \(attackToUse.name)")
         println(">>> Who to attack?")
         
         for (var k = 0; k < forBattle.battleQueue.count; ++k) {
             println(">>> \(k): \(forBattle.battleQueue[k].name)")
         }
         
-        let choice = input()
-        if let victimIndex = choice.toInt() {
-            forBattle.characterPerformAction(character, targeting: forBattle.battleQueue[victimIndex], withAttack: character.defaultAttack)
+        let victimChoice = input()
+        if let tempVictimIndex = victimChoice.toInt() {
+            victimIndex = tempVictimIndex
         } else {
-            println(">>> Invalid input: '\(choice)'")
+            println(">>> Invalid input: '\(victimChoice)'")
             characterNeedsDecision(character, forBattle: forBattle)
+            return
         }
         
+        forBattle.characterPerformAction(character, targeting: forBattle.battleQueue[victimIndex], withAttack: attackToUse)
     }
     
 }
 
 class BattleDemo: BattleMonitor, CharacterMonitor, BattleDelegate {
-    let intel = DumbArtificialIntelligence() //IntelDemo()
+    let intel = IntelDemo()
     
     let team1: Team
     
@@ -69,6 +116,21 @@ class BattleDemo: BattleMonitor, CharacterMonitor, BattleDelegate {
         self.team2 = Team()
         team2.enroll(battleBot)
         
+        sonic.defaultAttack = Attack(name: "Spindash", type: .Normal, power: 6, draw: 0, status: .Normal, isTeam: false)
+        mewtwo.defaultAttack = Attack(name: "Concussion", type: .Normal, power: 5, draw: 0, status: .Normal, isTeam: false)
+        battleBot.defaultAttack = Attack(name: "Punch", type: Type.Normal, power: 5, draw: 0, status: Status.Normal, isTeam: false)
+        
+        twilight.learn(Attack(name: "Fireworks", type: .LightMagic, power: 5, draw: 5, status: .Normal, isTeam: false))
+        mewtwo.learn(Attack(name: "Aura Sphere", type: .DarkMagic, power: 7, draw: 5, status: .Normal, isTeam: false))
+        
+        let catalog = Attack(name: "Catalog", type: .LightMagic, power: 4, draw: 2, status: .Normal, isTeam: false)
+        let purge = Attack(name: "451", type: .Fire, power: 4, draw: 5, status: .Normal, isTeam: true)
+        let bookbag = Attack(name: "Book Bag", type: .Normal, power: 4, draw: 0, status: .Normal, isTeam: false)
+        let overdue = Attack(name: "Overdue", type: .DarkMagic, power: 7, draw: 0, status: .Normal, isTeam: false)
+        
+        let jorb = Job(name: "Librarian", defaultAttack: bookbag, rushAttack: overdue, learnedSkills: [JobUnlockable(spRequired: 3, attack: catalog), JobUnlockable(spRequired: 5, attack: purge)])
+        twilight.jobs.append(JobProgress(job: jorb, character: twilight, sp: 2))
+        
         self.sonic.monitor = self
         self.twilight.monitor = self
         self.mewtwo.monitor = self
@@ -86,8 +148,9 @@ class BattleDemo: BattleMonitor, CharacterMonitor, BattleDelegate {
     func battleCompleted(sender: Battle, protagonistsWon: Bool) {
         if protagonistsWon {
             println("The chaos of friendship cannot be defeated!")
+            self.twilight.spUp(5)
         } else {
-            println("And Mewtwo's ego gets slightly larger...")
+            println("Oof! Go get yourselves cleaned up, heros!")
         }
         println("----------")
         println("Thank you for playing. Until next time!")
@@ -116,21 +179,20 @@ class BattleDemo: BattleMonitor, CharacterMonitor, BattleDelegate {
         println("----------")
     }
     
-    func battle(sender: Battle, activeCharacter: Character, performedAttack: Attack, againstCharacter: Character, forDamage: Int?, forStatus: Status?) {
+    func battle(sender: Battle, activeCharacter: Character, performedAttack: Attack, againstCharacter: Character, withResult: AttackResult) {
         println("# \(activeCharacter.name) attacked \(againstCharacter.name) with \(performedAttack.name)")
         
-        var anyEffect = false
-        if let damage = forDamage {
-            println("# \(againstCharacter.name) took \(damage) damage.")
-            anyEffect = true
-        }
-        if let status = forStatus {
-            println("# \(againstCharacter.name) status: \(status)")
-            anyEffect = true
-        }
-        
-        if !anyEffect {
-            println("# No effect!")
+        if withResult.missed {
+            println("# Attack missed!")
+        } else {
+            if withResult.critical {
+                println("# Critical hit!")
+            }
+            if withResult.damage > 0 {
+                println("# \(againstCharacter.name) took \(withResult.damage) damage.")
+            } else {
+                println("# No effect!")
+            }
         }
     }
     
@@ -168,6 +230,8 @@ class BattleDemo: BattleMonitor, CharacterMonitor, BattleDelegate {
     }
     
     func character(sender: Character, hpChangedBy: Int) {
+        if hpChangedBy == 0 { return }
+        
         var output = "%% \(sender.name) "
         
         if hpChangedBy > 0 {
@@ -180,6 +244,8 @@ class BattleDemo: BattleMonitor, CharacterMonitor, BattleDelegate {
     }
     
     func character(sender: Character, mpChangedBy: Int) {
+        if mpChangedBy == 0 { return }
+        
         var output = "%% \(sender.name) "
         
         if mpChangedBy > 0 {
@@ -207,6 +273,9 @@ class BattleDemo: BattleMonitor, CharacterMonitor, BattleDelegate {
         println("%% \(sender.name) learned \(learnedAttack.name)")
     }
     
+    func character(sender: Character, expChangedBy: Int) {
+        println("%% \(sender.name) gained \(expChangedBy) EXP")
+    }
 }
 
 

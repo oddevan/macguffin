@@ -10,6 +10,7 @@
 
 protocol CharacterMonitor {
     func character(sender: Character, levelChangedTo: Int)
+    func character(sender: Character, expChangedBy: Int)
     func character(sender: Character, hpChangedBy: Int)
     func character(sender: Character, mpChangedBy: Int)
     func character(sender: Character, statusChangedTo: Status)
@@ -36,6 +37,18 @@ class Character {
         }
     }
     
+    var exp: Int = 0 {
+        didSet {
+            if exp < 0 { exp = 0 }
+            
+            monitor?.character(self, expChangedBy: exp - oldValue)
+            
+            while level < 100 && exp >= 50 * (level * level + level) { // 50(x^2 + x)
+                ++level
+            }
+        }
+    }
+    
     var hp: Int = 0 {
         didSet {
             if hp < 0 { hp = 0 }
@@ -58,8 +71,6 @@ class Character {
     
     var wait: Int = 0 //Temp value for battle timing
     
-    let defaultAttack = Attack(name: "Punch", type: Type.Normal, power: 5, draw: 0, status: Status.Normal, isTeam: false)
-    
     var intelligence: Intelligence
     var monitor: CharacterMonitor?
     
@@ -73,7 +84,19 @@ class Character {
     
     var isAlive: Bool { return hp > 0 }
     
+    var defaultAttack: Attack?
     var specialAttacks: [Attack] = []
+    
+    var standardAttack: Attack {
+        if currentJob > -1 {
+            return jobs[currentJob].job.defaultAttack
+        } else if let defatk = self.defaultAttack {
+            return defatk
+        } else {
+            return Attack(name: "Hit", type: Type.Normal, power: 1, draw: 0, status: Status.Normal, isTeam: false)
+        }
+    }
+    
     var jobs: [JobProgress] = [] {
         didSet {
             if currentJob == -1 {

@@ -17,10 +17,10 @@ struct Utility {
     }
     
     struct Team {
-        static let MaxActiveCharacters: Int = 4
+        static let MaxActiveCharacters: Int = 3
     }
     
     struct Attack {
-        static let ChanceOfCriticalHit: Double = 0.05
+        static let ChanceOfCriticalHit: Float = 0.05
     }
 }
