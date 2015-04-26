@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6751"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7702"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -648,7 +648,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="Macguffin Demo" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
@@ -810,8 +810,31 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s8w-zf-tgO">
+                                <rect key="frame" x="0.0" y="0.0" width="584" height="90"/>
+                                <textFieldCell key="cell" selectable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="gH0-xE-6VW">
+                                    <font key="font" size="12" name="CourierNewPSMT"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="bottomConsole" destination="s8w-zf-tgO" id="Z4e-sm-qgU"/>
+                        <outlet property="player1bar" destination="r5P-Nv-Vct" id="oPY-kz-Bhk"/>
+                        <outlet property="player1name" destination="B3U-F2-tRF" id="mOz-NA-oeD"/>
+                        <outlet property="player1status" destination="thb-lm-FPY" id="Tq6-aj-y3d"/>
+                        <outlet property="player2bar" destination="imS-LE-Fb0" id="AJU-ej-hop"/>
+                        <outlet property="player2name" destination="bTK-4M-IAw" id="JCh-hm-alC"/>
+                        <outlet property="player2status" destination="Qgb-hr-1Y5" id="koo-LR-PVl"/>
+                        <outlet property="player3bar" destination="uRW-hz-1xS" id="pUA-iM-ZXI"/>
+                        <outlet property="player3name" destination="9bO-eH-Ry3" id="LjM-6X-bJM"/>
+                        <outlet property="player3status" destination="iJS-wE-jBa" id="HVC-Kw-rqR"/>
+                        <outlet property="player4bar" destination="hwb-hV-9KX" id="u3g-8C-PgW"/>
+                        <outlet property="player4name" destination="Gqv-oE-2Tg" id="6CN-LU-7jq"/>
+                        <outlet property="player4status" destination="9DY-Wg-izi" id="oIx-PK-7SJ"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

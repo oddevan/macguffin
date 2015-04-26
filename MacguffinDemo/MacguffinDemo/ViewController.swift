@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+class ViewController: NSViewController, {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +22,22 @@ class ViewController: NSViewController {
         }
     }
 
+    @IBOutlet weak var bottomConsole: NSTextField!
 
+    @IBOutlet weak var player1name: NSTextField!
+    @IBOutlet weak var player1status: NSTextField!
+    @IBOutlet weak var player1bar: NSProgressIndicator!
+    
+    @IBOutlet weak var player2name: NSTextField!
+    @IBOutlet weak var player2status: NSTextField!
+    @IBOutlet weak var player2bar: NSProgressIndicator!
+    
+    @IBOutlet weak var player3name: NSTextField!
+    @IBOutlet weak var player3status: NSTextField!
+    @IBOutlet weak var player3bar: NSProgressIndicator!
+    
+    @IBOutlet weak var player4name: NSTextField!
+    @IBOutlet weak var player4status: NSTextField!
+    @IBOutlet weak var player4bar: NSProgressIndicator!
 }
 
