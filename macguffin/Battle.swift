@@ -55,7 +55,7 @@ class Battle {
         self.delegate = delegate
         
         self.battleQueue = proTeam.active + antTeam.active
-        self.battleQueue.sort({ $0.spd < $1.spd })
+        self.battleQueue.sortInPlace({ $0.spd < $1.spd })
         
         if let slowest = battleQueue.first {
             self.waitValue = slowest.spd
@@ -102,7 +102,7 @@ class Battle {
     }
     
     func characterPerformAction(performer: Character, targeting: Character, withAttack: Attack) {
-        let prevHP = targeting.hp
+        //let prevHP = targeting.hp
         
         let attackResult = withAttack.perform(performer, victim: targeting)
         
@@ -184,7 +184,7 @@ class Battle {
     }
     
     func sortQueue() {
-        self.battleQueue.sort({
+        self.battleQueue.sortInPlace({
             if $0.wait == $1.wait {
                 return $0.spd > $1.spd
             } else {

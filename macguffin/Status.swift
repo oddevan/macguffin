@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Evan Hildreth. All rights reserved.
 //
 
-enum Status : Int, Printable {
+enum Status : Int, CustomStringConvertible {
     case Normal = 0
     case Sleep = 1
     case Poisoned = 2

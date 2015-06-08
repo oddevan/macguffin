@@ -55,9 +55,9 @@ class Item {
                 target.status = futureStatus
                 return true
             } else {
-                println("ERROR: Item.amountAffected does not correspond to known Status")
-                println(self)
-                println("--------")
+                print("ERROR: Item.amountAffected does not correspond to known Status")
+                print(self)
+                print("--------")
             }
             
         default :

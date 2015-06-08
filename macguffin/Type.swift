@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Evan Hildreth. All rights reserved.
 //
 
-enum Type : Printable {
+enum Type : CustomStringConvertible {
     case Normal
     case Earth
     case Fire

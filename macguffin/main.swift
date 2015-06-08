@@ -10,8 +10,8 @@ import Foundation
 
 // via http://stackoverflow.com/questions/24004776/input-from-the-keyboard-in-command-line-application?lq=1
 func input() -> String {
-    var keyboard = NSFileHandle.fileHandleWithStandardInput()
-    var inputData = keyboard.availableData
+    let keyboard = NSFileHandle.fileHandleWithStandardInput()
+    let inputData = keyboard.availableData
     return NSString(data: inputData, encoding:NSUTF8StringEncoding)!.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "\n"))
 }
 
@@ -22,61 +22,61 @@ class IntelDemo: Intelligence {
         var victimIndex: Int
         var attackToUse: Attack
         
-        println(">>> \(character.name)'s turn")
-        println(">>>")
+        print(">>> \(character.name)'s turn")
+        print(">>>")
         
         if character.specialAttacks.isEmpty {
             attackToUse = character.standardAttack
         } else {
-            println(">>> What will \(character.name) do?")
-            println(">>> 0: Attack")
-            println(">>> 1: Special")
+            print(">>> What will \(character.name) do?")
+            print(">>> 0: Attack")
+            print(">>> 1: Special")
             
             let menuChoice = input()
-            if let tempMenuIndex = menuChoice.toInt() {
+            if let tempMenuIndex = Int(menuChoice) {
                 switch tempMenuIndex {
                 case 0:
                     attackToUse = character.standardAttack
                 case 1:
-                    println(">>> Which of \(character.name)'s attacks?")
+                    print(">>> Which of \(character.name)'s attacks?")
                     for (var k = 0; k < character.specialAttacks.count; ++k) {
-                        println(">>> \(k): \(character.specialAttacks[k].name)")
+                        print(">>> \(k): \(character.specialAttacks[k].name)")
                     }
                     
                     let attackChoice = input()
-                    if let tempAttackIndex = attackChoice.toInt() {
+                    if let tempAttackIndex = Int(attackChoice) {
                         attackToUse = character.specialAttacks[tempAttackIndex]
                     } else {
-                        println(">>> Invalid input: '\(attackChoice)'")
+                        print(">>> Invalid input: '\(attackChoice)'")
                         characterNeedsDecision(character, forBattle: forBattle)
                         return
                     }
                     
                 default:
-                    println(">>> Invalid input: '\(tempMenuIndex)'")
+                    print(">>> Invalid input: '\(tempMenuIndex)'")
                     characterNeedsDecision(character, forBattle: forBattle)
                     return
                 }
-                println(">>>")
+                print(">>>")
             } else {
-                println(">>> Invalid input: '\(menuChoice)'")
+                print(">>> Invalid input: '\(menuChoice)'")
                 characterNeedsDecision(character, forBattle: forBattle)
                 return
             }
         }
         
-        println(">>> Attacking with \(attackToUse.name)")
-        println(">>> Who to attack?")
+        print(">>> Attacking with \(attackToUse.name)")
+        print(">>> Who to attack?")
         
         for (var k = 0; k < forBattle.battleQueue.count; ++k) {
-            println(">>> \(k): \(forBattle.battleQueue[k].name)")
+            print(">>> \(k): \(forBattle.battleQueue[k].name)")
         }
         
         let victimChoice = input()
-        if let tempVictimIndex = victimChoice.toInt() {
+        if let tempVictimIndex = Int(victimChoice) {
             victimIndex = tempVictimIndex
         } else {
-            println(">>> Invalid input: '\(victimChoice)'")
+            print(">>> Invalid input: '\(victimChoice)'")
             characterNeedsDecision(character, forBattle: forBattle)
             return
         }
@@ -147,86 +147,86 @@ class BattleDemo: BattleMonitor, CharacterMonitor, BattleDelegate {
     
     func battleCompleted(sender: Battle, protagonistsWon: Bool) {
         if protagonistsWon {
-            println("The chaos of friendship cannot be defeated!")
+            print("The chaos of friendship cannot be defeated!")
             self.twilight.spUp(5)
         } else {
-            println("Oof! Go get yourselves cleaned up, heros!")
+            print("Oof! Go get yourselves cleaned up, heros!")
         }
-        println("----------")
-        println("Thank you for playing. Until next time!")
+        print("----------")
+        print("Thank you for playing. Until next time!")
         exit(EXIT_SUCCESS)
     }
     
     func battleInvalidState(sender: Battle) {
-        println("WTF battle just crashed?")
+        print("WTF battle just crashed?")
         exit(EXIT_FAILURE)
     }
     
     // From BattleMonitor
     
     func battleBegun(sender: Battle) {
-        println("----------")
-        println("New battle!")
-        println("----------")
+        print("----------")
+        print("New battle!")
+        print("----------")
         
         for char in sender.proTeam.active {
-            println("    " + char.name)
+            print("    " + char.name)
         }
-        println("> VERSUS <")
+        print("> VERSUS <")
         for char in sender.antTeam.active {
-            println("    " + char.name)
+            print("    " + char.name)
         }
-        println("----------")
+        print("----------")
     }
     
     func battle(sender: Battle, activeCharacter: Character, performedAttack: Attack, againstCharacter: Character, withResult: AttackResult) {
-        println("# \(activeCharacter.name) attacked \(againstCharacter.name) with \(performedAttack.name)")
+        print("# \(activeCharacter.name) attacked \(againstCharacter.name) with \(performedAttack.name)")
         
         if withResult.missed {
-            println("# Attack missed!")
+            print("# Attack missed!")
         } else {
             if withResult.critical {
-                println("# Critical hit!")
+                print("# Critical hit!")
             }
             if withResult.damage > 0 {
-                println("# \(againstCharacter.name) took \(withResult.damage) damage.")
+                print("# \(againstCharacter.name) took \(withResult.damage) damage.")
             } else {
-                println("# No effect!")
+                print("# No effect!")
             }
         }
     }
     
     func battle(sender: Battle, activeCharacter: Character, usedItem: Item, againstCharacter: Character, forDamage: Int?, forStatus: Status?) {
-            println("# \(activeCharacter.name) used \(usedItem.name) on \(againstCharacter.name)")
+            print("# \(activeCharacter.name) used \(usedItem.name) on \(againstCharacter.name)")
             
             var anyEffect = false
             if let damage = forDamage {
-                println("# \(againstCharacter.name) gained \(-1*damage) HP.")
+                print("# \(againstCharacter.name) gained \(-1*damage) HP.")
                 anyEffect = true
             }
             if let status = forStatus {
-                println("# \(againstCharacter.name) status: \(status)")
+                print("# \(againstCharacter.name) status: \(status)")
                 anyEffect = true
             }
             
             if !anyEffect {
-                println("# No effect!")
+                print("# No effect!")
             }
     }
     
     func battle(sender: Battle, characterDied: Character) {
-        println("# " + characterDied.name + " fell.")
+        print("# " + characterDied.name + " fell.")
     }
     
     func battleEnded(sender: Battle) {
-        println("----------")
-        println("Battle completed!")
+        print("----------")
+        print("Battle completed!")
     }
     
     // From CharacterMonitor
     
     func character(sender: Character, levelChangedTo: Int) {
-        println("%% \(sender.name) grew to level \(levelChangedTo)")
+        print("%% \(sender.name) grew to level \(levelChangedTo)")
     }
     
     func character(sender: Character, hpChangedBy: Int) {
@@ -240,7 +240,7 @@ class BattleDemo: BattleMonitor, CharacterMonitor, BattleDelegate {
             output += "lost \(-1 * hpChangedBy) HP"
         }
         
-        println("\(output): \(sender.hp)/\(sender.maxHP)")
+        print("\(output): \(sender.hp)/\(sender.maxHP)")
     }
     
     func character(sender: Character, mpChangedBy: Int) {
@@ -254,7 +254,7 @@ class BattleDemo: BattleMonitor, CharacterMonitor, BattleDelegate {
             output += "lost \(-1 * mpChangedBy) MP"
         }
         
-        println(output)
+        print(output)
     }
     
     func character(sender: Character, statusChangedTo: Status) {
@@ -266,20 +266,20 @@ class BattleDemo: BattleMonitor, CharacterMonitor, BattleDelegate {
         case .Sleep: output += "fell asleep"
         }
         
-        println(output)
+        print(output)
     }
     
     func character(sender: Character, learnedAttack: Attack) {
-        println("%% \(sender.name) learned \(learnedAttack.name)")
+        print("%% \(sender.name) learned \(learnedAttack.name)")
     }
     
     func character(sender: Character, expChangedBy: Int) {
-        println("%% \(sender.name) gained \(expChangedBy) EXP")
+        print("%% \(sender.name) gained \(expChangedBy) EXP")
     }
 }
 
 
-println("Alright guys, time's up, let's do this thing.")
+print("Alright guys, time's up, let's do this thing.")
 
 let demo = BattleDemo()
 demo.go()

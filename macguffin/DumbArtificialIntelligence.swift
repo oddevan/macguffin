@@ -11,11 +11,11 @@ class DumbArtificialIntelligence: Intelligence {
         var victimIndex: Int
         
         if let myTeam = character.team {
-            do {
+            repeat {
                 victimIndex = Utility.randomInt(forBattle.battleQueue.count)
             } while forBattle.battleQueue[victimIndex].team === myTeam
         } else {
-            do {
+            repeat {
                 victimIndex = Utility.randomInt(forBattle.battleQueue.count)
             } while forBattle.battleQueue[victimIndex] === character
         }
