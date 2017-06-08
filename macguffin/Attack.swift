@@ -32,7 +32,7 @@ class Attack {
         self.isTeam = isTeam
     }
     
-    func perform(attacker:Character, victim:Character) -> AttackResult {
+    func perform(_ attacker:Character, victim:Character) -> AttackResult {
         attacker.mp -= self.draw
         
         let hitProbability = Float(attacker.acc) / Float(victim.spd)

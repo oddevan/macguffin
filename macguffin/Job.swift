@@ -24,7 +24,7 @@ class Job {
         self.unlockables = learnedSkills
     }
     
-    func teach(student: Character, oldSP: Int, newSP: Int) {
+    func teach(_ student: Character, oldSP: Int, newSP: Int) {
         let unlocked = self.unlockables.filter({ $0.spRequired > oldSP && $0.spRequired <= newSP })
         for unlockable in unlocked {
             student.learn(unlockable.attack)

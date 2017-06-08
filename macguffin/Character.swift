@@ -9,12 +9,12 @@
 //import Foundation
 
 protocol CharacterMonitor {
-    func character(sender: Character, levelChangedTo: Int)
-    func character(sender: Character, expChangedBy: Int)
-    func character(sender: Character, hpChangedBy: Int)
-    func character(sender: Character, mpChangedBy: Int)
-    func character(sender: Character, statusChangedTo: Status)
-    func character(sender: Character, learnedAttack: Attack)
+    func character(_ sender: Character, levelChangedTo: Int)
+    func character(_ sender: Character, expChangedBy: Int)
+    func character(_ sender: Character, hpChangedBy: Int)
+    func character(_ sender: Character, mpChangedBy: Int)
+    func character(_ sender: Character, statusChangedTo: Status)
+    func character(_ sender: Character, learnedAttack: Attack)
 }
 
 class Character {
@@ -44,7 +44,7 @@ class Character {
             monitor?.character(self, expChangedBy: exp - oldValue)
             
             while level < 100 && exp >= 50 * (level * level + level) { // 50(x^2 + x)
-                ++level
+                level += 1
             }
         }
     }
@@ -67,7 +67,7 @@ class Character {
         }
     }
     
-    var status: Status = Status.Normal { didSet { monitor?.character(self, statusChangedTo: self.status) } }
+    var status: Status = Status.normal { didSet { monitor?.character(self, statusChangedTo: self.status) } }
     
     var wait: Int = 0 //Temp value for battle timing
     
@@ -93,7 +93,7 @@ class Character {
         } else if let defatk = self.defaultAttack {
             return defatk
         } else {
-            return Attack(name: "Hit", type: Type.Normal, power: 1, draw: 0, status: Status.Normal, isTeam: false)
+            return Attack(name: "Hit", type: Type.normal, power: 1, draw: 0, status: Status.normal, isTeam: false)
         }
     }
     
@@ -127,13 +127,13 @@ class Character {
         self.mp = self.maxMP
     }
     
-    func spUp(amount: Int) {
+    func spUp(_ amount: Int) {
         if currentJob >= 0 && currentJob < jobs.count {
             jobs[currentJob].sp += amount
         }
     }
     
-    func learn(newSkill: Attack) {
+    func learn(_ newSkill: Attack) {
         specialAttacks.append(newSkill)
         monitor?.character(self, learnedAttack: newSkill)
     }

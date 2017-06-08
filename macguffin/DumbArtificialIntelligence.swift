@@ -7,7 +7,7 @@
 //
 
 class DumbArtificialIntelligence: Intelligence {
-    func characterNeedsDecision(character: Character, forBattle: Battle) {
+    func characterNeedsDecision(_ character: Character, forBattle: Battle) {
         var victimIndex: Int
         
         if let myTeam = character.team {

@@ -7,23 +7,23 @@
 //
 
 enum Type : CustomStringConvertible {
-    case Normal
-    case Earth
-    case Fire
-    case Wind
-    case Water
-    case LightMagic
-    case DarkMagic
+    case normal
+    case earth
+    case fire
+    case wind
+    case water
+    case lightMagic
+    case darkMagic
     
     var description: String {
         switch self {
-        case .Normal: return "Normal"
-        case .Earth: return "Earth"
-        case .Fire: return "Fire"
-        case .Wind: return "Wind"
-        case .Water: return "Water"
-        case .LightMagic: return "Light Magic"
-        case .DarkMagic: return "Dark Magic"
+        case .normal: return "Normal"
+        case .earth: return "Earth"
+        case .fire: return "Fire"
+        case .wind: return "Wind"
+        case .water: return "Water"
+        case .lightMagic: return "Light Magic"
+        case .darkMagic: return "Dark Magic"
         }
     }
 }

@@ -7,5 +7,5 @@
 //
 
 protocol Intelligence {
-    func characterNeedsDecision(character: Character, forBattle: Battle)
+    func characterNeedsDecision(_ character: Character, forBattle: Battle)
 }

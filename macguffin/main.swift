@@ -10,15 +10,15 @@ import Foundation
 
 // via http://stackoverflow.com/questions/24004776/input-from-the-keyboard-in-command-line-application?lq=1
 func input() -> String {
-    let keyboard = NSFileHandle.fileHandleWithStandardInput()
+    let keyboard = FileHandle.withStandardInput
     let inputData = keyboard.availableData
-    return NSString(data: inputData, encoding:NSUTF8StringEncoding)!.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "\n"))
+    return NSString(data: inputData, encoding:String.Encoding.utf8)!.trimmingCharacters(in: CharacterSet(charactersIn: "\n"))
 }
 
 class IntelDemo: Intelligence {
     // From Intelligence
     
-    func characterNeedsDecision(character: Character, forBattle: Battle) {
+    func characterNeedsDecision(_ character: Character, forBattle: Battle) {
         var victimIndex: Int
         var attackToUse: Attack
         
@@ -39,7 +39,7 @@ class IntelDemo: Intelligence {
                     attackToUse = character.standardAttack
                 case 1:
                     print(">>> Which of \(character.name)'s attacks?")
-                    for (var k = 0; k < character.specialAttacks.count; ++k) {
+                    for (k in 0 ..< character.specialAttacks.count += 1) {
                         print(">>> \(k): \(character.specialAttacks[k].name)")
                     }
                     
@@ -68,7 +68,7 @@ class IntelDemo: Intelligence {
         print(">>> Attacking with \(attackToUse.name)")
         print(">>> Who to attack?")
         
-        for (var k = 0; k < forBattle.battleQueue.count; ++k) {
+        for (k in 0 ..< forBattle.battleQueue.count += 1) {
             print(">>> \(k): \(forBattle.battleQueue[k].name)")
         }
         
@@ -116,17 +116,17 @@ class BattleDemo: BattleMonitor, CharacterMonitor, BattleDelegate {
         self.team2 = Team()
         team2.enroll(battleBot)
         
-        sonic.defaultAttack = Attack(name: "Spindash", type: .Normal, power: 6, draw: 0, status: .Normal, isTeam: false)
-        mewtwo.defaultAttack = Attack(name: "Concussion", type: .Normal, power: 5, draw: 0, status: .Normal, isTeam: false)
-        battleBot.defaultAttack = Attack(name: "Punch", type: Type.Normal, power: 5, draw: 0, status: Status.Normal, isTeam: false)
+        sonic.defaultAttack = Attack(name: "Spindash", type: .normal, power: 6, draw: 0, status: .normal, isTeam: false)
+        mewtwo.defaultAttack = Attack(name: "Concussion", type: .normal, power: 5, draw: 0, status: .normal, isTeam: false)
+        battleBot.defaultAttack = Attack(name: "Punch", type: Type.normal, power: 5, draw: 0, status: Status.normal, isTeam: false)
         
-        twilight.learn(Attack(name: "Fireworks", type: .LightMagic, power: 5, draw: 5, status: .Normal, isTeam: false))
-        mewtwo.learn(Attack(name: "Aura Sphere", type: .DarkMagic, power: 7, draw: 5, status: .Normal, isTeam: false))
+        twilight.learn(Attack(name: "Fireworks", type: .lightMagic, power: 5, draw: 5, status: .normal, isTeam: false))
+        mewtwo.learn(Attack(name: "Aura Sphere", type: .darkMagic, power: 7, draw: 5, status: .normal, isTeam: false))
         
-        let catalog = Attack(name: "Catalog", type: .LightMagic, power: 4, draw: 2, status: .Normal, isTeam: false)
-        let purge = Attack(name: "451", type: .Fire, power: 4, draw: 5, status: .Normal, isTeam: true)
-        let bookbag = Attack(name: "Book Bag", type: .Normal, power: 4, draw: 0, status: .Normal, isTeam: false)
-        let overdue = Attack(name: "Overdue", type: .DarkMagic, power: 7, draw: 0, status: .Normal, isTeam: false)
+        let catalog = Attack(name: "Catalog", type: .lightMagic, power: 4, draw: 2, status: .normal, isTeam: false)
+        let purge = Attack(name: "451", type: .fire, power: 4, draw: 5, status: .normal, isTeam: true)
+        let bookbag = Attack(name: "Book Bag", type: .normal, power: 4, draw: 0, status: .normal, isTeam: false)
+        let overdue = Attack(name: "Overdue", type: .darkMagic, power: 7, draw: 0, status: .normal, isTeam: false)
         
         let jorb = Job(name: "Librarian", defaultAttack: bookbag, rushAttack: overdue, learnedSkills: [JobUnlockable(spRequired: 3, attack: catalog), JobUnlockable(spRequired: 5, attack: purge)])
         twilight.jobs.append(JobProgress(job: jorb, character: twilight, sp: 2))
@@ -145,7 +145,7 @@ class BattleDemo: BattleMonitor, CharacterMonitor, BattleDelegate {
     
     // From BattleDelegate
     
-    func battleCompleted(sender: Battle, protagonistsWon: Bool) {
+    func battleCompleted(_ sender: Battle, protagonistsWon: Bool) {
         if protagonistsWon {
             print("The chaos of friendship cannot be defeated!")
             self.twilight.spUp(5)
@@ -157,14 +157,14 @@ class BattleDemo: BattleMonitor, CharacterMonitor, BattleDelegate {
         exit(EXIT_SUCCESS)
     }
     
-    func battleInvalidState(sender: Battle) {
+    func battleInvalidState(_ sender: Battle) {
         print("WTF battle just crashed?")
         exit(EXIT_FAILURE)
     }
     
     // From BattleMonitor
     
-    func battleBegun(sender: Battle) {
+    func battleBegun(_ sender: Battle) {
         print("----------")
         print("New battle!")
         print("----------")
@@ -179,7 +179,7 @@ class BattleDemo: BattleMonitor, CharacterMonitor, BattleDelegate {
         print("----------")
     }
     
-    func battle(sender: Battle, activeCharacter: Character, performedAttack: Attack, againstCharacter: Character, withResult: AttackResult) {
+    func battle(_ sender: Battle, activeCharacter: Character, performedAttack: Attack, againstCharacter: Character, withResult: AttackResult) {
         print("# \(activeCharacter.name) attacked \(againstCharacter.name) with \(performedAttack.name)")
         
         if withResult.missed {
@@ -196,7 +196,7 @@ class BattleDemo: BattleMonitor, CharacterMonitor, BattleDelegate {
         }
     }
     
-    func battle(sender: Battle, activeCharacter: Character, usedItem: Item, againstCharacter: Character, forDamage: Int?, forStatus: Status?) {
+    func battle(_ sender: Battle, activeCharacter: Character, usedItem: Item, againstCharacter: Character, forDamage: Int?, forStatus: Status?) {
             print("# \(activeCharacter.name) used \(usedItem.name) on \(againstCharacter.name)")
             
             var anyEffect = false
@@ -214,22 +214,22 @@ class BattleDemo: BattleMonitor, CharacterMonitor, BattleDelegate {
             }
     }
     
-    func battle(sender: Battle, characterDied: Character) {
+    func battle(_ sender: Battle, characterDied: Character) {
         print("# " + characterDied.name + " fell.")
     }
     
-    func battleEnded(sender: Battle) {
+    func battleEnded(_ sender: Battle) {
         print("----------")
         print("Battle completed!")
     }
     
     // From CharacterMonitor
     
-    func character(sender: Character, levelChangedTo: Int) {
+    func character(_ sender: Character, levelChangedTo: Int) {
         print("%% \(sender.name) grew to level \(levelChangedTo)")
     }
     
-    func character(sender: Character, hpChangedBy: Int) {
+    func character(_ sender: Character, hpChangedBy: Int) {
         if hpChangedBy == 0 { return }
         
         var output = "%% \(sender.name) "
@@ -243,7 +243,7 @@ class BattleDemo: BattleMonitor, CharacterMonitor, BattleDelegate {
         print("\(output): \(sender.hp)/\(sender.maxHP)")
     }
     
-    func character(sender: Character, mpChangedBy: Int) {
+    func character(_ sender: Character, mpChangedBy: Int) {
         if mpChangedBy == 0 { return }
         
         var output = "%% \(sender.name) "
@@ -257,23 +257,23 @@ class BattleDemo: BattleMonitor, CharacterMonitor, BattleDelegate {
         print(output)
     }
     
-    func character(sender: Character, statusChangedTo: Status) {
+    func character(_ sender: Character, statusChangedTo: Status) {
         var output = "%% \(sender.name) "
         
         switch statusChangedTo {
-        case .Normal: output += "is back to normal!"
-        case .Poisoned: output += "is now poisoned."
-        case .Sleep: output += "fell asleep"
+        case .normal: output += "is back to normal!"
+        case .poisoned: output += "is now poisoned."
+        case .sleep: output += "fell asleep"
         }
         
         print(output)
     }
     
-    func character(sender: Character, learnedAttack: Attack) {
+    func character(_ sender: Character, learnedAttack: Attack) {
         print("%% \(sender.name) learned \(learnedAttack.name)")
     }
     
-    func character(sender: Character, expChangedBy: Int) {
+    func character(_ sender: Character, expChangedBy: Int) {
         print("%% \(sender.name) gained \(expChangedBy) EXP")
     }
 }

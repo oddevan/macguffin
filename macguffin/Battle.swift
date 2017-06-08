@@ -7,31 +7,31 @@
 //
 
 protocol BattleDelegate {
-    func battleCompleted(sender: Battle, protagonistsWon: Bool)
-    func battleInvalidState(sender: Battle)
+    func battleCompleted(_ sender: Battle, protagonistsWon: Bool)
+    func battleInvalidState(_ sender: Battle)
 }
 
 // All of these should be optional, but I don't feel like dealing with
 // a crapton of @objc crap in this crapfest.
 protocol BattleMonitor {
-    func battleBegun(sender: Battle)
+    func battleBegun(_ sender: Battle)
     
-    func battle(  sender: Battle,
+    func battle(  _ sender: Battle,
          activeCharacter: Character,
          performedAttack: Attack,
         againstCharacter: Character,
         withResult: AttackResult)
     
-    func battle(sender: Battle,
+    func battle(_ sender: Battle,
         activeCharacter: Character,
         usedItem: Item,
         againstCharacter: Character,
         forDamage: Int?,
         forStatus: Status?)
     
-    func battle(sender: Battle, characterDied: Character)
+    func battle(_ sender: Battle, characterDied: Character)
     
-    func battleEnded(sender: Battle)
+    func battleEnded(_ sender: Battle)
 }
 
 class Battle {
@@ -55,7 +55,7 @@ class Battle {
         self.delegate = delegate
         
         self.battleQueue = proTeam.active + antTeam.active
-        self.battleQueue.sortInPlace({ $0.spd < $1.spd })
+        self.battleQueue.sort(by: { $0.spd < $1.spd })
         
         if let slowest = battleQueue.first {
             self.waitValue = slowest.spd
@@ -101,7 +101,7 @@ class Battle {
         }
     }
     
-    func characterPerformAction(performer: Character, targeting: Character, withAttack: Attack) {
+    func characterPerformAction(_ performer: Character, targeting: Character, withAttack: Attack) {
         //let prevHP = targeting.hp
         
         let attackResult = withAttack.perform(performer, victim: targeting)
@@ -124,7 +124,7 @@ class Battle {
         endTurn()
     }
     
-    func characterPerformAction(performer: Character, targeting: Character, withItem: Item) {
+    func characterPerformAction(_ performer: Character, targeting: Character, withItem: Item) {
         let prevHP = targeting.hp
         
         withItem.use(targeting)
@@ -156,7 +156,7 @@ class Battle {
         }
     }
     
-    func endBattle(protagonistsWon: Bool) {
+    func endBattle(_ protagonistsWon: Bool) {
         if protagonistsWon {
             for member in proTeam.active + proTeam.bench {
                 member.exp += proTeamQueuedExp
@@ -174,7 +174,7 @@ class Battle {
     
     // This function checks for anyone alive in the team's 'active' array
     // To override with other conditions, override this function.
-    func isTeamAlive(checkMe: Team) -> Bool {
+    func isTeamAlive(_ checkMe: Team) -> Bool {
         for char in checkMe.active {
             if char.isAlive {
                 return true
@@ -184,7 +184,7 @@ class Battle {
     }
     
     func sortQueue() {
-        self.battleQueue.sortInPlace({
+        self.battleQueue.sort(by: {
             if $0.wait == $1.wait {
                 return $0.spd > $1.spd
             } else {

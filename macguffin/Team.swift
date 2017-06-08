@@ -11,7 +11,7 @@ class Team {
     var bench: [Character] = []
     var inventory: [ItemQuantity] = []
     
-    func enroll(newbie: Character) {
+    func enroll(_ newbie: Character) {
         if active.count >= Utility.Team.MaxActiveCharacters {
             bench.append(newbie)
         } else {

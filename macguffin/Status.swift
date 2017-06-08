@@ -7,15 +7,15 @@
 //
 
 enum Status : Int, CustomStringConvertible {
-    case Normal = 0
-    case Sleep = 1
-    case Poisoned = 2
+    case normal = 0
+    case sleep = 1
+    case poisoned = 2
     
     var description: String {
         switch self {
-        case .Normal: return "Normal"
-        case .Sleep: return "Sleep"
-        case .Poisoned: return "Poisoned"
+        case .normal: return "Normal"
+        case .sleep: return "Sleep"
+        case .poisoned: return "Poisoned"
         }
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 
 struct Utility {
     static func randomFloat() -> Float { return Float(arc4random()) / Float(UINT32_MAX) }
-    static func randomInt(upToButNotIncluding: Int) -> Int { return Int(arc4random_uniform(UInt32(upToButNotIncluding))) }
+    static func randomInt(_ upToButNotIncluding: Int) -> Int { return Int(arc4random_uniform(UInt32(upToButNotIncluding))) }
     
     struct Character {
         static let StatBumpPerLevel: Double = 0.1
