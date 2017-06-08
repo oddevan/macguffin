@@ -10,9 +10,14 @@ import Foundation
 
 // via http://stackoverflow.com/questions/24004776/input-from-the-keyboard-in-command-line-application?lq=1
 func input() -> String {
-    let keyboard = FileHandle.withStandardInput
-    let inputData = keyboard.availableData
-    return NSString(data: inputData, encoding:String.Encoding.utf8)!.trimmingCharacters(in: CharacterSet(charactersIn: "\n"))
+    //let keyboard = FileHandle.standardInput
+    //let inputData = keyboard.availableData
+    //return NSString(data: inputData, encoding:String.Encoding.utf8)!.trimmingCharacters(in: CharacterSet(charactersIn: "\n"))
+    if let inputData = readLine() {
+        return inputData
+    } else {
+        return ""
+    }
 }
 
 class IntelDemo: Intelligence {
@@ -39,7 +44,7 @@ class IntelDemo: Intelligence {
                     attackToUse = character.standardAttack
                 case 1:
                     print(">>> Which of \(character.name)'s attacks?")
-                    for (k in 0 ..< character.specialAttacks.count += 1) {
+                    for k in 0..<character.specialAttacks.count {
                         print(">>> \(k): \(character.specialAttacks[k].name)")
                     }
                     
@@ -68,7 +73,7 @@ class IntelDemo: Intelligence {
         print(">>> Attacking with \(attackToUse.name)")
         print(">>> Who to attack?")
         
-        for (k in 0 ..< forBattle.battleQueue.count += 1) {
+        for k in 0..<forBattle.battleQueue.count {
             print(">>> \(k): \(forBattle.battleQueue[k].name)")
         }
         

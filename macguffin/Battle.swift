@@ -127,12 +127,12 @@ class Battle {
     func characterPerformAction(_ performer: Character, targeting: Character, withItem: Item) {
         let prevHP = targeting.hp
         
-        withItem.use(targeting)
-        
-        monitor?.battle(self, activeCharacter: performer, usedItem: withItem, againstCharacter: targeting, forDamage: prevHP - targeting.hp, forStatus: nil)
-        
-        if !targeting.isAlive {
-            monitor?.battle(self, characterDied: targeting)
+        if withItem.use(targeting) {
+            monitor?.battle(self, activeCharacter: performer, usedItem: withItem, againstCharacter: targeting, forDamage: prevHP - targeting.hp, forStatus: nil)
+            
+            if !targeting.isAlive {
+                monitor?.battle(self, characterDied: targeting)
+            }
         }
         
         endTurn()
